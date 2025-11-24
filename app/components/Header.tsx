@@ -32,9 +32,13 @@ export default function Header() {
               <Link href="/waarom" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Waarom Ons
               </Link>
+                <Link href="/portfolio" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                   Portfolio
+               </Link>
               <Link href="/contact" className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition-colors">
                 Contact
               </Link>
+            
             </div>
           </div>
 
@@ -75,9 +79,13 @@ export default function Header() {
               <Link href="/waarom" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">
                 Waarom Ons
               </Link>
+              <Link href="/portfolio" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                   Portfolio
+               </Link>
               <Link href="/contact" className="bg-blue-600 text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium mx-3">
                 Contact
               </Link>
+              
             </div>
           </div>
         )}

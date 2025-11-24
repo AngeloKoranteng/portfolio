@@ -25,13 +25,19 @@ export default function Contact() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+    const data = await res.json();
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitMessage('Bedankt voor uw bericht! We nemen binnen 24 uur contact met u op.');
+    if (data.success) {
+      setSubmitMessage("Bedankt voor uw bericht! We nemen binnen 24 uur contact op.");
       setFormData({
         name: '',
         email: '',
@@ -41,24 +47,31 @@ export default function Contact() {
         timeline: '',
         message: ''
       });
-    }, 2000);
-  };
+    } else {
+      setSubmitMessage("Er is iets misgegaan, probeer het later opnieuw.");
+    }
+  } catch (err) {
+    setSubmitMessage("Er is iets misgegaan, probeer het later opnieuw.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const contactMethods = [
     {
       title: 'E-mail',
-      value: 'info@devsoft.nl',
+      value: 'devsofttcompany@gmail.com',
       description: 'Voor algemene vragen en project aanvragen',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
-      action: 'mailto:info@devsoft.nl'
+      action: 'mailto:devsofttcompany@gmail.com'
     },
     {
       title: 'Telefoon',
-      value: '+31 6 12 34 56 78',
+      value: '+31 6 86 12 28 09',
       description: 'Direct contact voor urgente vragen',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,7 +82,7 @@ export default function Contact() {
     },
     {
       title: 'WhatsApp',
-      value: '+31 6 12 34 56 78',
+      value: '+31 6 86 12 28 09',
       description: 'Voor snelle communicatie en updates',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
