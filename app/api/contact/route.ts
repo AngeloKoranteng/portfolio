@@ -1,4 +1,8 @@
+// app/api/contact/route.ts
 import nodemailer from "nodemailer";
+import { NextResponse } from "next/server";
+
+export const runtime = "nodejs"; // zeker weten dat hij Node runt, niet Edge
 
 export async function POST(req: Request) {
   try {
@@ -39,19 +43,15 @@ ${message || "Geen bericht ingevuld"}
 
     await transporter.sendMail(mailOptions);
 
-    return new Response(
-      JSON.stringify({ success: true }),
-      { status: 200 }
-    );
-
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (err: unknown) {
     const errorMessage =
       err instanceof Error ? err.message : "Onbekende fout";
 
     console.error("Mail error:", errorMessage);
 
-    return new Response(
-      JSON.stringify({ success: false, error: errorMessage }),
+    return NextResponse.json(
+      { success: false, error: errorMessage },
       { status: 500 }
     );
   }

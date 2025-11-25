@@ -1,69 +1,135 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* achtergrond & surfaces */
+  --c-bg-main: #f5f6f8;      /* heel zacht grijs */
+  --c-bg-soft: #ffffff;      /* cards / secties */
+  --c-surface: #ffffff;
+  --c-surface-alt: #edf0f4;  /* subtiel andere toon voor afwisseling */
+
+  /* primary / accent (DEEP SLATE) */
+  --c-primary: #4a5568;      /* hoofd slate grijs */
+  --c-primary-soft: #718096; /* lichtere variant */
+  --c-accent: #2d3748;       /* donker accent als je die nodig hebt */
+
+  /* tekst */
+  --c-text-main: #111827;    /* bijna zwart, goed leesbaar */
+  --c-text-muted: #6b7280;   /* rustig grijs */
+  --c-text-soft: #9ca3af;
+
+  /* borders / shadow */
+  --c-border-subtle: #e2e8f0;
+  --c-border-strong: #cbd5e1;
+  --c-shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.06);
+
+  /* radii */
+  --c-radius-lg: 18px;
+  --c-radius-pill: 999px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* algemene body styling */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--c-bg-main);
+  color: var(--c-text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Custom animations */
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
+/* generieke cards */
+.card-soft {
+  background: var(--c-bg-soft);
+  border-radius: var(--c-radius-lg);
+  border: 1px solid var(--c-border-subtle);
+  box-shadow: var(--c-shadow-soft);
+}
+
+/* primaire knop */
+.btn-main {
+  border-radius: var(--c-radius-pill);
+  background: var(--c-primary);
+  color: #fff;
+  padding: 0.8rem 1.7rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+  text-decoration: none;
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out, background 150ms ease-out;
+}
+
+.btn-main:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(62, 92, 255, 0.35);
+  background: #3852e0;
+}
+
+/* secundaire knop */
+.btn-ghost {
+  border-radius: var(--c-radius-pill);
+  background: transparent;
+  color: var(--c-text-muted);
+  padding: 0.8rem 1.7rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--c-border-subtle);
+  text-decoration: none;
+  transition: background 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out;
+}
+
+.btn-ghost:hover {
+  background: #eef1ff;
+  border-color: var(--c-border-strong);
+  color: var(--c-primary);
+}
+
+/* badge boven headings */
+.badge-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: #edf1ff;
+  border: 1px solid #d5ddff;
+  color: #334155;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* simpele page fade-in */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  100% {
-    transform: translate(0px, 0px) scale(1);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes gradient-x {
-  0%, 100% {
-    background-size: 200% 200%;
-    background-position: left center;
-  }
-  50% {
-    background-size: 200% 200%;
-    background-position: right center;
-  }
+.page-enter {
+  animation: pageFadeIn 0.45s ease-out forwards;
+}
+/* --- Fade-in op scroll voor secties / kaarten --- */
+
+.section-fade {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+  will-change: opacity, transform;
 }
 
-.animate-blob {
-  animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-.animate-gradient-x {
-  animation: gradient-x 15s ease infinite;
+.section-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

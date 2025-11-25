@@ -11,7 +11,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="text-2xl font-bold text-blue-600">
-              DevSoftWeb
+              DevSoft
             </Link>
           </div>
           
@@ -76,8 +76,8 @@ export default function Header() {
               <Link href="/technologien" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">
                 Technologieën
               </Link>
-              <Link href="/waarom" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">
-                Waarom Ons
+              <Link href="/over" className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">
+                Over Ons
               </Link>
               <Link href="/portfolio" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                    Portfolio
