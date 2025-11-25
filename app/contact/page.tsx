@@ -117,10 +117,7 @@ export default function Contact() {
       question: 'Bieden jullie onderhoud en support?',
       answer: 'Ja, we bieden verschillende onderhoudscontracten aan. Van basis hosting en updates tot uitgebreide 24/7 support en doorontwikkeling.'
     },
-    {
-      question: 'Kunnen jullie bestaande systemen integreren?',
-      answer: 'Absoluut! We hebben ervaring met het integreren van diverse systemen zoals CRM\'s, ERP-systemen, payment gateways en third-party API\'s.'
-    },
+   
    
   ];
 
