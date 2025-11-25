@@ -79,9 +79,9 @@ export default function Header() {
               <Link href="/over" className="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">
                 Over Ons
               </Link>
-              <Link href="/portfolio" className="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">
-                   Portfolio
-               </Link>
+              <Link href="/portfolio" className="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">
+                Portfolio
+              </Link>
               <Link href="/contact" className="bg-teal-600 text-white hover:bg-teal-700 block px-3 py-2 rounded-md text-base font-medium mx-3">
                 Contact
               </Link>

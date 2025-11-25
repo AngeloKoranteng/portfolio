@@ -121,10 +121,7 @@ export default function Contact() {
       question: 'Kunnen jullie bestaande systemen integreren?',
       answer: 'Absoluut! We hebben ervaring met het integreren van diverse systemen zoals CRM\'s, ERP-systemen, payment gateways en third-party API\'s.'
     },
-    {
-      question: 'Werken jullie ook remote?',
-      answer: 'Ja, we werken zowel on-site als remote. De meeste projecten voeren we remote uit met reguliere video calls voor afstemming.'
-    }
+   
   ];
 
   return (
