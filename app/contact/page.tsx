@@ -130,16 +130,20 @@ export default function Contact() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Neem Contact Op
-            </h1>
-            <p className="text-xl sm:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Klaar om uw software project te starten? Laten we kennismaken en uw ideeën bespreken
-            </p>
-          </div>
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+          <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-teal-100/50 blur-3xl" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-slate-100/50 blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-900">
+            Neem Contact Op
+          </h1>
+          <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Klaar om uw software project te starten? Laten we kennismaken en uw ideeën bespreken
+          </p>
         </div>
       </section>
 
@@ -172,7 +176,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                       placeholder="Uw volledige naam"
                     />
                   </div>
@@ -188,7 +192,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                       placeholder="uw.email@voorbeeld.nl"
                     />
                   </div>
@@ -204,7 +208,7 @@ export default function Contact() {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     placeholder="Uw bedrijfsnaam"
                   />
                 </div>
@@ -219,7 +223,7 @@ export default function Contact() {
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     >
                       <option value="">Selecteer een type</option>
                       <option value="website">Website</option>
@@ -240,7 +244,7 @@ export default function Contact() {
                       name="budget"
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     >
                       <option value="">Selecteer budget</option>
                       <option value="5k-10k">€5.000 - €10.000</option>
@@ -261,7 +265,7 @@ export default function Contact() {
                     name="timeline"
                     value={formData.timeline}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   >
                     <option value="">Selecteer timeline</option>
                     <option value="asap">Zo snel mogelijk</option>
@@ -283,7 +287,7 @@ export default function Contact() {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     placeholder="Vertel ons meer over uw project, doelstellingen en specifieke wensen..."
                   />
                 </div>
@@ -291,7 +295,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="w-full bg-teal-600 text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-teal-700 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   {isSubmitting ? 'Verzenden...' : 'Verstuur Project Aanvraag'}
                 </button>
@@ -312,14 +316,14 @@ export default function Contact() {
                       href={method.action}
                       className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
                     >
-                      <div className="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center group-hover:bg-blue-700 transition-colors">
+                      <div className="w-12 h-12 bg-teal-600 text-white rounded-lg flex items-center justify-center group-hover:bg-teal-700 transition-colors">
                         {method.icon}
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        <h3 className="font-semibold text-gray-900 group-hover:text-teal-600 transition-colors">
                           {method.title}
                         </h3>
-                        <p className="text-blue-600 font-medium">
+                        <p className="text-teal-600 font-medium">
                           {method.value}
                         </p>
                         <p className="text-sm text-gray-600">
@@ -331,7 +335,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-teal-50 to-emerald-100 rounded-2xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Snelle Response Tijd
                 </h3>
@@ -397,7 +401,7 @@ export default function Contact() {
             <p className="text-gray-600 mb-4">
               Heeft u andere vragen? Neem gerust contact met ons op!
             </p>
-            <a href="mailto:info@devsoft.nl" className="text-blue-600 hover:text-blue-700 font-semibold">
+            <a href="mailto:info@devsoft.nl" className="text-teal-600 hover:text-teal-700 font-semibold">
               info@devsoft.nl
             </a>
           </div>
@@ -405,21 +409,29 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto text-center px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Klaar voor de eerste stap?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Laten we kennismaken en uw project bespreken
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+31612345678" className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-block shadow-lg">
-              Bel Direct
-            </a>
-            <Link href="/diensten" className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors inline-block">
-              Bekijk Onze Diensten
-            </Link>
+          <div className="bg-slate-900 rounded-3xl p-12 text-white relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full opacity-10">
+              <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle,white,transparent)]" />
+            </div>
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+                Klaar voor de eerste stap?
+              </h2>
+              <p className="text-xl text-slate-300 mb-8">
+                Laten we kennismaken en uw project bespreken
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+31612345678" className="bg-white text-slate-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-block shadow-lg">
+                  Bel Direct
+                </a>
+                <Link href="/diensten" className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-slate-900 transition-colors inline-block">
+                  Bekijk Onze Diensten
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

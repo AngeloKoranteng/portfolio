@@ -2,76 +2,98 @@ export default function Portfolio() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero sectie */}
-      <section className="bg-blue-600 text-white py-20 text-center px-6">
-        <h1 className="text-4xl font-bold mb-4">Onze Portfolio</h1>
-        <p className="text-lg max-w-2xl mx-auto">
-          Bekijk een selectie van demo-projecten die wij hebben ontworpen voor verschillende soorten bedrijven.
-          Elk project is mobielvriendelijk, modern en gericht op conversie.
-        </p>
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+          <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-teal-100/50 blur-3xl" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-slate-100/50 blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-900">
+            Onze <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">Portfolio</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Bekijk een selectie van demo-projecten die wij hebben ontworpen voor verschillende soorten bedrijven.
+            Elk project is mobielvriendelijk, modern en gericht op conversie.
+          </p>
+        </div>
       </section>
 
       {/* Projecten sectie */}
-      <section className="max-w-7xl mx-auto py-16 px-6 grid md:grid-cols-3 gap-12">
+      <section className="max-w-7xl mx-auto pb-20 px-6 grid md:grid-cols-3 gap-12">
         
-        {/* Project 1 - Kapper */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-          <img
-            src="/demo/Kapper.jpg"
-            alt="Kapper Demo"
-            className="w-full h-48 object-cover"
-          />
+        {/* Project 1 - Flutter App */}
+        <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
+          <div className="h-48 bg-slate-800 flex items-center justify-center relative overflow-hidden">
+             <div className="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-900 opacity-90" />
+             <div className="relative z-10 text-white text-center">
+                <span className="block text-4xl font-bold mb-2">TaskMaster</span>
+                <span className="text-sm opacity-80 uppercase tracking-widest">Flutter App</span>
+             </div>
+          </div>
           <div className="p-6">
-            <h3 className="text-xl font-bold mb-2">Kapper / Barber Demo</h3>
+            <h3 className="text-xl font-bold mb-2">To-Do Task App</h3>
             <p className="text-gray-700 mb-4">
-              Moderne één-pagina website voor kappers, met hero-beeld, prijslijst, foto-galerij en WhatsApp-afspraakknop.
+              Een mobiele applicatie voor taakbeheer, gebouwd met Flutter en.
+            </p>
+            <a
+              href="/portfolio/flutter-todo"
+              className="inline-block bg-slate-800 text-white px-4 py-2 rounded-md hover:bg-slate-900 transition-colors"
+            >
+              Bekijk details
+            </a>
+          </div>
+        </div>
+
+        {/* Project 2 - Pizza Website */}
+        <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div className="h-48 bg-green-500 flex items-center justify-center relative overflow-hidden">
+             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/food.png')] opacity-20" />
+             <div className="relative z-10 text-white text-center">
+                <span className="block text-4xl font-serif font-bold mb-2">Pizza</span>
+                <span className="text-sm opacity-90 uppercase tracking-widest">Pizza Store</span>
+             </div>
+          </div>
+          <div className="p-6">
+            <h3 className="text-xl font-bold mb-2">Pizza Bestel Website</h3>
+            <p className="text-gray-700 mb-4">
+              Complete voor een pizzeria met menu-builder en live order tracking.
+            </p>
+            <a
+              href="/portfolio/pizza-website"
+              className="inline-block bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 transition-colors"
+            >
+              Bekijk details
+            </a>
+          </div>
+        </div>
+
+        {/* Project 3 - Kapper (Live Demo) */}
+        <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow border-2 border-teal-100">
+          <div className="h-48 bg-gray-900 flex items-center justify-center relative overflow-hidden">
+             <img 
+               src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop" 
+               alt="Barber"
+               className="absolute inset-0 w-full h-full object-cover opacity-60"
+             />
+             <div className="relative z-10 bg-white/10 backdrop-blur-sm px-4 py-2 rounded border border-white/20">
+                <span className="text-white font-bold tracking-wider">LIVE DEMO</span>
+             </div>
+          </div>
+          <div className="p-6">
+            <div className="flex justify-between items-start mb-2">
+               <h3 className="text-xl font-bold">Kapper / Barber</h3>
+               <span className="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded">LIVE</span>
+            </div>
+            <p className="text-gray-700 mb-4">
+              Volledig functionele demo website voor een kapsalon. Inclusief afspraken module, galerij en prijslijst.
             </p>
             <a
               href="/demo/kapper"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+              className="inline-block w-full text-center bg-gray-900 text-white px-4 py-3 rounded-md hover:bg-black transition-colors font-medium"
             >
-              Bekijk demo
-            </a>
-          </div>
-        </div>
-
-        {/* Project 2 - Loodgieter */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-          <img
-            src="/demo/loodgieter.jpg"
-            alt="Loodgieter Demo"
-            className="w-full h-48 object-cover"
-          />
-          <div className="p-6">
-            <h3 className="text-xl font-bold mb-2">Loodgieter / Klusbedrijf Demo</h3>
-            <p className="text-gray-700 mb-4">
-              24/7 loodgieterswebsite met spoedknop, dienstenoverzicht, klantbeoordelingen en contactformulier.
-            </p>
-            <a
-              href="/demo/loodgieter"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-            >
-              Bekijk demo
-            </a>
-          </div>
-        </div>
-
-        {/* Project 3 - Restaurant */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-          <img
-            src="/demo/restaurant.jpg"
-            alt="Restaurant Demo"
-            className="w-full h-48 object-cover"
-          />
-          <div className="p-6">
-            <h3 className="text-xl font-bold mb-2">Restaurant / Eetcafé Demo</h3>
-            <p className="text-gray-700 mb-4">
-              Eén-pagina restaurant demo met hero banner, menukaart, foto’s, reserveringsoptie en Google Maps-integratie.
-            </p>
-            <a
-              href="/demo/restaurant"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-            >
-              Bekijk demo
+              Open Live Demo
             </a>
           </div>
         </div>
@@ -87,7 +109,7 @@ export default function Portfolio() {
         </p>
         <a
           href="/contact"
-          className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors"
+          className="bg-teal-600 text-white px-6 py-3 rounded-md hover:bg-teal-700 transition-colors"
         >
           Neem contact op
         </a>
