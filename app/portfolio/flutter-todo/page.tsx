@@ -8,9 +8,10 @@ import { ArrowLeft, CheckCircle, Smartphone, Layers, Zap } from "lucide-react";
 export default function FlutterTodoPage() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const screenshots = [
-    { src: "/portfolio/taskmaster/task2.png", alt: "Home Screen" },
-    { src: "/portfolio/taskmaster/task3.png", alt: "Task Details" },
-    { src: "/portfolio/taskmaster/task4.png", alt: "Settings" },
+    { src: "/portfolio/taskmaster/Task1.png", alt: "Home Screen" },
+    { src: "/portfolio/taskmaster/task2.png", alt: "Task List" },
+    { src: "/portfolio/taskmaster/Task3.png", alt: "Task Details" },
+    { src: "/portfolio/taskmaster/task4.png", alt: "Add Task" },
     { src: "/portfolio/taskmaster/task5.png", alt: "Settings" }
   ];
 
@@ -97,16 +98,14 @@ export default function FlutterTodoPage() {
                      /> */}
                      
                      {/* Temporary Placeholder */}
-                     <div className="text-center p-4">
-                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                          <Smartphone className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 className="text-xl font-bold text-white mb-2">{screenshots[currentScreenshot].alt}</h3>
-                        <p className="text-slate-300 text-sm">
-                          Plaats afbeelding: <br/>
-                          <code className="bg-black/30 px-1 rounded text-xs">{screenshots[currentScreenshot].src}</code>
-                        </p>
-                     </div>
+                  {/* Image Render Logic */}
+                  <div className="relative w-full h-full flex items-center justify-center">
+                     <img 
+                        src={screenshots[currentScreenshot].src} 
+                        alt={screenshots[currentScreenshot].alt}
+                        className="w-full h-full object-cover"
+                     />
+                  </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
