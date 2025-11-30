@@ -8,9 +8,10 @@ import { ArrowLeft, CheckCircle, Smartphone, Layers, Zap } from "lucide-react";
 export default function FlutterTodoPage() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const screenshots = [
-    "Screenshot 1: Home Screen",
-    "Screenshot 2: Task Details",
-    "Screenshot 3: Settings"
+    { src: "/portfolio/taskmaster/task2.png", alt: "Home Screen" },
+    { src: "/portfolio/taskmaster/task3.png", alt: "Task Details" },
+    { src: "/portfolio/taskmaster/task4.png", alt: "Settings" },
+    { src: "/portfolio/taskmaster/task5.png", alt: "Settings" }
   ];
 
   useEffect(() => {
@@ -83,20 +84,35 @@ export default function FlutterTodoPage() {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0 flex flex-col items-center justify-center"
                 >
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                    <Smartphone className="w-8 h-8 text-white" />
+                  {/* Image Placeholder Logic */}
+                  <div className="relative w-full h-full flex items-center justify-center">
+                     {/* 
+                        NOTE: Uncomment the img tag below once you have added the images to public/portfolio/taskmaster/
+                        Ensure files are named: screen1.png, screen2.png, screen3.png
+                     */}
+                     {/* <img 
+                        src={screenshots[currentScreenshot].src} 
+                        alt={screenshots[currentScreenshot].alt}
+                        className="w-full h-full object-cover"
+                     /> */}
+                     
+                     {/* Temporary Placeholder */}
+                     <div className="text-center p-4">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                          <Smartphone className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 className="text-xl font-bold text-white mb-2">{screenshots[currentScreenshot].alt}</h3>
+                        <p className="text-slate-300 text-sm">
+                          Plaats afbeelding: <br/>
+                          <code className="bg-black/30 px-1 rounded text-xs">{screenshots[currentScreenshot].src}</code>
+                        </p>
+                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{screenshots[currentScreenshot]}</h3>
-                  <p className="text-slate-300 text-sm">
-                    Plaats hier uw screenshot.
-                    <br />
-                    <span className="opacity-60 text-xs">(Vervang deze div met uw afbeeldingen)</span>
-                  </p>
                 </motion.div>
               </AnimatePresence>
 
               {/* Indicators */}
-              <div className="absolute bottom-4 flex gap-2">
+              <div className="absolute bottom-4 flex gap-2 z-10">
                 {screenshots.map((_, i) => (
                   <div 
                     key={i} 
