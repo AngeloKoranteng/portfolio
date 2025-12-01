@@ -8,9 +8,10 @@ import { ArrowLeft, Pizza, ShoppingCart, Star, Truck, ChefHat } from "lucide-rea
 export default function PizzaWebsitePage() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const screenshots = [
-    "Screenshot 1: Homepage",
-    "Screenshot 2: Menu",
-    "Screenshot 3: Winkelwagen"
+    { src: "/portfolio/pizza-website/pizza1.jpeg", alt: "Homepage" },
+    { src: "/portfolio/pizza-website/pizza2.jpeg", alt: "Menu" },
+    { src: "/portfolio/pizza-website/pizza3.jpeg", alt: "Winkelwagen" },
+    { src: "/portfolio/pizza-website/pizza4.jpeg", alt: "Order Tracking" }
   ];
 
   useEffect(() => {
@@ -70,7 +71,7 @@ export default function PizzaWebsitePage() {
             className="relative"
           >
             {/* Screenshot Carousel */}
-            <div className="w-full aspect-video bg-white/10 border-4 border-dashed border-white/30 rounded-xl flex flex-col items-center justify-center text-center p-8 backdrop-blur-sm relative overflow-hidden">
+            <div className="w-full aspect-video bg-slate-900 rounded-xl flex flex-col items-center justify-center text-center backdrop-blur-sm relative overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentScreenshot}
@@ -78,22 +79,18 @@ export default function PizzaWebsitePage() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex flex-col items-center justify-center"
+                  className="absolute inset-0"
                 >
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                    <Pizza className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{screenshots[currentScreenshot]}</h3>
-                  <p className="text-green-100 text-sm">
-                    Plaats hier uw screenshot.
-                    <br />
-                    <span className="opacity-60 text-xs">(Vervang deze div met uw afbeeldingen)</span>
-                  </p>
+                   <img 
+                      src={screenshots[currentScreenshot].src} 
+                      alt={screenshots[currentScreenshot].alt}
+                      className="w-full h-full object-cover"
+                   />
                 </motion.div>
               </AnimatePresence>
               
               {/* Indicators */}
-              <div className="absolute bottom-4 flex gap-2">
+              <div className="absolute bottom-4 flex gap-2 z-10">
                 {screenshots.map((_, i) => (
                   <div 
                     key={i} 
