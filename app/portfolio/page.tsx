@@ -50,7 +50,7 @@ export default function Portfolio() {
         <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
           <div className="h-48 bg-green-600 flex items-center justify-center relative overflow-hidden">
              <img 
-                src="/portfolio/pizza-website/pizza1.png" 
+                src="/portfolio/pizza-website/pizza1.jpeg" 
                 alt="Pizza Store" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
              />
