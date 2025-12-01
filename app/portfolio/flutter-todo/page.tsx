@@ -75,7 +75,7 @@ export default function FlutterTodoPage() {
             className="relative flex justify-center items-center"
           >
             {/* Screenshot Carousel */}
-            <div className="w-full max-w-md aspect-[9/16] bg-white/10 border-4 border-dashed border-white/30 rounded-3xl flex flex-col items-center justify-center text-center p-8 backdrop-blur-sm relative overflow-hidden">
+            <div className="w-full max-w-md aspect-[9/16] bg-slate-900 rounded-3xl flex flex-col items-center justify-center text-center backdrop-blur-sm relative overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentScreenshot}
@@ -83,30 +83,13 @@ export default function FlutterTodoPage() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex flex-col items-center justify-center"
+                  className="absolute inset-0"
                 >
-                  {/* Image Placeholder Logic */}
-                  <div className="relative w-full h-full flex items-center justify-center">
-                     {/* 
-                        NOTE: Uncomment the img tag below once you have added the images to public/portfolio/taskmaster/
-                        Ensure files are named: screen1.png, screen2.png, screen3.png
-                     */}
-                     {/* <img 
-                        src={screenshots[currentScreenshot].src} 
-                        alt={screenshots[currentScreenshot].alt}
-                        className="w-full h-full object-cover"
-                     /> */}
-                     
-                     {/* Temporary Placeholder */}
-                  {/* Image Render Logic */}
-                  <div className="relative w-full h-full flex items-center justify-center">
-                     <img 
-                        src={screenshots[currentScreenshot].src} 
-                        alt={screenshots[currentScreenshot].alt}
-                        className="w-full h-full object-cover"
-                     />
-                  </div>
-                  </div>
+                   <img 
+                      src={screenshots[currentScreenshot].src} 
+                      alt={screenshots[currentScreenshot].alt}
+                      className="w-full h-full object-cover"
+                   />
                 </motion.div>
               </AnimatePresence>
 
