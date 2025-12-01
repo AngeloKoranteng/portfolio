@@ -27,7 +27,7 @@ export default function Portfolio() {
         <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
           <div className="h-48 bg-slate-800 flex items-center justify-center relative overflow-hidden">
              <img 
-                src="/portfolio/taskmaster/Mytasks.png" 
+                src="/portfolio/taskmaster/Task.png" 
                 alt="TaskMaster App" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
              />
