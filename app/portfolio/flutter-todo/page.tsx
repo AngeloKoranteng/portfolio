@@ -9,10 +9,12 @@ export default function FlutterTodoPage() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const screenshots = [
     { src: "/portfolio/taskmaster/Task1.png", alt: "Home Screen" },
-    { src: "/portfolio/taskmaster/task2.png", alt: "Task List" },
+    { src: "/portfolio/taskmaster/Task2.png", alt: "Task List" },
     { src: "/portfolio/taskmaster/Task3.png", alt: "Task Details" },
-    { src: "/portfolio/taskmaster/task4.png", alt: "Add Task" },
-    { src: "/portfolio/taskmaster/task5.png", alt: "Settings" }
+    { src: "/portfolio/taskmaster/Task4.png", alt: "Add Task" },
+    { src: "/portfolio/taskmaster/Task5.png", alt: "Settings" },
+       { src: "/portfolio/taskmaster/Task6.png", alt: "Settings" },
+          { src: "/portfolio/taskmaster/Task7.png", alt: "Settings" }
   ];
 
   useEffect(() => {
