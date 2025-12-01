@@ -35,7 +35,7 @@ export default function Portfolio() {
           <div className="p-6">
             <h3 className="text-xl font-bold mb-2">To-Do Task App</h3>
             <p className="text-gray-700 mb-4">
-              Een mobiele applicatie voor taakbeheer, gebouwd met Flutter en.
+              Een mobiele applicatie voor taakbeheer, gebouwd met Expo go.
             </p>
             <a
               href="/portfolio/flutter-todo"

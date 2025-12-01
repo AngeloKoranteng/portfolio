@@ -54,8 +54,8 @@ export default function FlutterTodoPage() {
               <span className="text-slate-400">Productiviteit Heruitgevonden</span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl">
-              Een krachtige, cross-platform to-do applicatie gebouwd met Flutter. 
-              Focus op snelheid, intuïtief design en naadloze synchronisatie.
+              Een krachtige, cross-platform to-do applicatie gebouwd met Expo Go. 
+              Focus op snelheid, intuïtief design en simpliciteit.
             </p>
             
             <div className="flex flex-wrap gap-4">
@@ -121,11 +121,12 @@ export default function FlutterTodoPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Smart Categorization", desc: "Automatische sortering van taken op basis van prioriteit en deadline." },
-              { title: "Dark Mode Support", desc: "Volledige ondersteuning voor systeem-brede dark mode." },
-              { title: "Settings", desc: "Pas de app volledig aan naar jouw wensen met uitgebreide instellingen." },
-            
-             
+              { title: "Smart Categorization", desc: "Automatische sortering van taken op basis van prioriteit, tags en deadlines." },
+              { title: "Personalisatie", desc: "Pas thema's, accentkleuren en lettertypes aan naar jouw eigen smaak." },
+              { title: "Notificatie Beheer", desc: "Stel gedetailleerde herinneringen in, inclusief locatie-gebaseerde meldingen." },
+              { title: "Privacy & Beveiliging", desc: "Beveilig de app met FaceID/TouchID en beheer lokale data-opslag." },
+              { title: "Data Export", desc: "Exporteer je takenlijsten naar PDF of CSV en maak automatische back-ups." },
+              { title: "Widget Support", desc: "Configureerbare home screen widgets voor snelle toegang tot je taken." },
             ].map((feature, i) => (
               <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                 <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-4">
