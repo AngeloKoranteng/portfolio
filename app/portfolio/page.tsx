@@ -27,7 +27,7 @@ export default function Portfolio() {
         <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
           <div className="h-48 bg-slate-800 flex items-center justify-center relative overflow-hidden">
              <img 
-                src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop" 
                 alt="TaskMaster App" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
              />
@@ -55,7 +55,7 @@ export default function Portfolio() {
         <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
           <div className="h-48 bg-green-600 flex items-center justify-center relative overflow-hidden">
              <img 
-                src="/portfolio/pizza-website/pizza1.png" 
+                src="/portfolio/pizza-website/pizza1.jpeg" 
                 alt="Pizza Store" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
              />
