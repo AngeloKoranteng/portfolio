@@ -25,17 +25,12 @@ export default function Portfolio() {
         
         {/* Project 1 - Flutter App */}
         <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
-          <div className="h-48 bg-slate-800 flex items-center justify-center relative overflow-hidden">
+          <div className="h-48 bg-slate-100 flex items-center justify-center relative overflow-hidden">
              <img 
                 src="/portfolio/taskmaster/Task.png" 
                 alt="TaskMaster App" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-110"
              />
-             <div className="absolute inset-0 bg-black/40" />
-             <div className="relative z-10 text-white text-center">
-                <span className="block text-4xl font-bold mb-2">TaskMaster</span>
-                <span className="text-sm opacity-80 uppercase tracking-widest">TaskApp</span>
-             </div>
           </div>
           <div className="p-6">
             <h3 className="text-xl font-bold mb-2">To-Do Task App</h3>
@@ -53,17 +48,12 @@ export default function Portfolio() {
 
         {/* Project 2 - Pizza Website */}
         <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
-          <div className="h-48 bg-green-600 flex items-center justify-center relative overflow-hidden">
+          <div className="h-48 bg-green-50 flex items-center justify-center relative overflow-hidden">
              <img 
-                src="/portfolio/pizza-website/pizza1.jpeg" 
+                src="/portfolio/pizza-website/pizza1.png" 
                 alt="Pizza Store" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
              />
-             <div className="absolute inset-0 bg-black/40" />
-             <div className="relative z-10 text-white text-center">
-                <span className="block text-4xl font-serif font-bold mb-2">Pizza</span>
-                <span className="text-sm opacity-90 uppercase tracking-widest">Pizza Store</span>
-             </div>
           </div>
           <div className="p-6">
             <h3 className="text-xl font-bold mb-2">Pizza Bestel Website</h3>
