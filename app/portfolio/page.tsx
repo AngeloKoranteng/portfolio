@@ -29,7 +29,7 @@ export default function Portfolio() {
              <div className="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-900 opacity-90" />
              <div className="relative z-10 text-white text-center">
                 <span className="block text-4xl font-bold mb-2">TaskMaster</span>
-                <span className="text-sm opacity-80 uppercase tracking-widest">Flutter App</span>
+                <span className="text-sm opacity-80 uppercase tracking-widest">TaskApp</span>
              </div>
           </div>
           <div className="p-6">
@@ -47,9 +47,14 @@ export default function Portfolio() {
         </div>
 
         {/* Project 2 - Pizza Website */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-          <div className="h-48 bg-green-500 flex items-center justify-center relative overflow-hidden">
-             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/food.png')] opacity-20" />
+        <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
+          <div className="h-48 bg-green-600 flex items-center justify-center relative overflow-hidden">
+             <img 
+                src="/portfolio/pizza-website/pizza1.png" 
+                alt="Pizza Store" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+             />
+             <div className="absolute inset-0 bg-black/40" />
              <div className="relative z-10 text-white text-center">
                 <span className="block text-4xl font-serif font-bold mb-2">Pizza</span>
                 <span className="text-sm opacity-90 uppercase tracking-widest">Pizza Store</span>

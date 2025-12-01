@@ -47,7 +47,7 @@ export default function FlutterTodoPage() {
           >
             <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Smartphone className="w-4 h-4" />
-              <span>Flutter Mobile App</span>
+              <span>Task Mobile App</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
               TaskMaster: <br />
@@ -143,7 +143,7 @@ export default function FlutterTodoPage() {
           <h2 className="text-2xl font-bold text-slate-900 mb-12">Gebruikte Technologieën</h2>
           <div className="flex flex-wrap justify-center gap-8 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
              {/* Placeholder logos - text for now */}
-             <span className="text-xl font-bold text-slate-400">Flutter</span>
+             <span className="text-xl font-bold text-slate-400">Expo Go</span>
              <span className="text-xl font-bold text-slate-400">Dart</span>
              <span className="text-xl font-bold text-slate-400">Firebase</span>
              <span className="text-xl font-bold text-slate-400">Bloc Pattern</span>
