@@ -1,4 +1,6 @@
 // Yo, welkom bij de restaurant demo.
+import Image from "next/image";
+
 // Hier fixen we die lekkere trek je weet toch.
 export default function RestaurantDemo() {
   return (
@@ -24,9 +26,15 @@ export default function RestaurantDemo() {
 
       {/* Foto-galerij - Instagram waardig voedsel gap */}
       <section className="max-w-7xl mx-auto py-16 px-6 grid md:grid-cols-3 gap-6">
-        <img src="/demo/restaurantklanten.png" alt="Restaurant foto 1" className="w-full h-48 object-cover rounded-lg shadow" />
-        <img src="/demo/keuken.jpg" alt="Restaurant foto 2" className="w-full h-48 object-cover rounded-lg shadow" />
-        <img src="/demo/etendrinken.jpg" alt="Restaurant foto 3" className="w-full h-48 object-cover rounded-lg shadow" />
+        <div className="relative w-full h-48">
+          <Image src="/demo/restaurantklanten.png" alt="Restaurant foto 1" fill className="object-cover rounded-lg shadow" />
+        </div>
+        <div className="relative w-full h-48">
+          <Image src="/demo/keuken.jpg" alt="Restaurant foto 2" fill className="object-cover rounded-lg shadow" />
+        </div>
+        <div className="relative w-full h-48">
+          <Image src="/demo/etendrinken.jpg" alt="Restaurant foto 3" fill className="object-cover rounded-lg shadow" />
+        </div>
       </section>
 
       {/* CTA - Boek die handel */}

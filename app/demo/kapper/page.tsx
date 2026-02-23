@@ -1,14 +1,13 @@
 "use client"; // Yo, dit runt in de browser want we hebben die dikke interacties nodig
 
-import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Scissors, Calendar, Clock, MapPin, Phone, Star, Instagram, Facebook, Twitter, Check } from "lucide-react";
 
 // Gap dit is de demo voor de kapper pagina
 // check hoe strak die lijntjes zijn
 export default function KapperDemo() {
-  // ff bijhouden of dat menu open staat of niet je weet toch
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   return (
     <div className="font-sans text-slate-800 bg-white">
@@ -34,10 +33,11 @@ export default function KapperDemo() {
       {/* Hero Section - BAM meteen die binnenkomer */}
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop" 
             alt="Barbershop Interior" 
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
@@ -135,10 +135,11 @@ export default function KapperDemo() {
             {/* Right Column - Image */}
             <div className="relative h-full min-h-[400px]">
               <div className="absolute inset-0 bg-black/10 rounded-lg transform rotate-3 translate-x-4 translate-y-4" />
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=2070&auto=format&fit=crop" 
                 alt="Barber working" 
-                className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-xl"
+                fill
+                className="object-cover rounded-lg shadow-xl"
               />
             </div>
           </div>
@@ -190,7 +191,7 @@ export default function KapperDemo() {
             "https://images.unsplash.com/photo-1532710093739-9470acff878f?q=80&w=2070&auto=format&fit=crop"
           ].map((src, i) => (
             <div key={i} className="aspect-square relative group overflow-hidden">
-              <img src={src} alt={`Gallery ${i}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <Image src={src} alt={`Gallery ${i}`} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <Instagram className="text-white w-8 h-8" />
               </div>

@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 /*
  * Hier gaan we even opscheppen over onszelf.
  * Waarom wij de beste keuze zijn (spoiler: zijn we gewoon).

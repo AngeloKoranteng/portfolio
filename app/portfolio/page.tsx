@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 // hiero al die projecten in een lijstje, lekker overzichtelijk toch?
 const PROJECTS = [
   {
@@ -93,11 +95,12 @@ export default function Portfolio() {
           >
             {/* Plaatje container met dynamische achtergrond kleur */}
             <div className={`h-48 ${project.bgColor} flex items-center justify-center relative overflow-hidden`}>
-               <img 
+               <Image 
                   src={project.image} 
                   alt={project.title} 
+                  fill
                   // afbeelding zoomt een beetje in als je eroverheen muist (group-hover:scale-110)
-                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${project.isLive ? 'opacity-60' : ''}`}
+                  className={`object-cover transition-transform duration-500 group-hover:scale-110 ${project.isLive ? 'opacity-60' : ''}`}
                />
                {/* gooi die overlay eroverheen die we in de config hebben */}
                {project.imgOverlay}

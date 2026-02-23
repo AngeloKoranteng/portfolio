@@ -71,7 +71,7 @@ export default function ContactClient() {
       // oeps, iets ging mis
       setSubmitMessage("Er is iets misgegaan, probeer het later opnieuw.");
     }
-  } catch (err) {
+  } catch {
     // server is dood 
     setSubmitMessage("Er is iets misgegaan, probeer het later opnieuw.");
   } finally {
@@ -312,7 +312,7 @@ export default function ContactClient() {
                         id="maintenance"
                         name="maintenance"
                         type="checkbox"
-                        checked={(formData as any).maintenance} // cast naar any of boolean als TS piept
+                        checked={formData.maintenance} // cast naar any of boolean als TS piept
                         onChange={handleInputChange}
                         className="h-5 w-5 text-teal-600 border-gray-300 rounded focus:ring-teal-500"
                       />

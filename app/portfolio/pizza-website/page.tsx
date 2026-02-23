@@ -3,16 +3,19 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, Pizza, ShoppingCart, Star, Truck, ChefHat } from "lucide-react";
+import { ArrowLeft, Pizza, ShoppingCart, Truck, ChefHat } from "lucide-react";
+import Image from "next/image";
+
+const screenshots = [
+  { src: "/portfolio/pizza-website/pizza1.jpeg", alt: "Homepage" },
+  { src: "/portfolio/pizza-website/pizza2.jpeg", alt: "Menu" },
+  { src: "/portfolio/pizza-website/pizza3.jpeg", alt: "Winkelwagen" },
+  { src: "/portfolio/pizza-website/pizza4.jpeg", alt: "Order Tracking" }
+];
 
 export default function PizzaWebsitePage() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
-  const screenshots = [
-    { src: "/portfolio/pizza-website/pizza1.jpeg", alt: "Homepage" },
-    { src: "/portfolio/pizza-website/pizza2.jpeg", alt: "Menu" },
-    { src: "/portfolio/pizza-website/pizza3.jpeg", alt: "Winkelwagen" },
-    { src: "/portfolio/pizza-website/pizza4.jpeg", alt: "Order Tracking" }
-  ];
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -81,10 +84,11 @@ export default function PizzaWebsitePage() {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0"
                 >
-                   <img 
+                   <Image 
                       src={screenshots[currentScreenshot].src} 
                       alt={screenshots[currentScreenshot].alt}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                    />
                 </motion.div>
               </AnimatePresence>

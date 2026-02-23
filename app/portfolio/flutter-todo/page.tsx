@@ -3,19 +3,22 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, CheckCircle, Smartphone, Layers, Zap } from "lucide-react";
+
+const screenshots = [
+  { src: "/portfolio/taskmaster/Task1.png", alt: "Home Screen" },
+  { src: "/portfolio/taskmaster/task2.png", alt: "Task List" },
+  { src: "/portfolio/taskmaster/Task3.png", alt: "Task Details" },
+  { src: "/portfolio/taskmaster/task4.png", alt: "Add Task" },
+  { src: "/portfolio/taskmaster/task5.png", alt: "Settings" },
+  { src: "/portfolio/taskmaster/Task6.png", alt: "Settings" },
+  { src: "/portfolio/taskmaster/Task7.png", alt: "Settings" }
+];
 
 export default function FlutterTodoPage() {
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
-  const screenshots = [
-    { src: "/portfolio/taskmaster/Task1.png", alt: "Home Screen" },
-    { src: "/portfolio/taskmaster/task2.png", alt: "Task List" },
-    { src: "/portfolio/taskmaster/Task3.png", alt: "Task Details" },
-    { src: "/portfolio/taskmaster/task4.png", alt: "Add Task" },
-    { src: "/portfolio/taskmaster/task5.png", alt: "Settings" },
-    { src: "/portfolio/taskmaster/Task6.png", alt: "Settings" },
-    { src: "/portfolio/taskmaster/Task7.png", alt: "Settings" }
-  ];
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -87,10 +90,11 @@ export default function FlutterTodoPage() {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0"
                 >
-                   <img 
+                   <Image 
                       src={screenshots[currentScreenshot].src} 
                       alt={screenshots[currentScreenshot].alt}
-                      className="w-full h-full object-contain"
+                      fill
+                      className="object-contain"
                    />
                 </motion.div>
               </AnimatePresence>
