@@ -1,6 +1,16 @@
 import Link from "next/link";
 
+/*
+ * Yo, dit is de werkwijze pagina.
+ * Hier leggen we uit hoe we shit fixen, snap je?
+ * Stap voor stap, geen stress.
+ */
 export default function Werkwijze() {
+  /*
+   * Dit zijn de fases waar we doorheen gaan.
+   * Van "ey wat wil je" tot "kijk hier is het".
+   * Geen vage business termen, gewoon duidelijk.
+   */
   const phases = [
     {
       phase: "01",
@@ -8,6 +18,7 @@ export default function Werkwijze() {
       duration: "1-2 weken",
       description:
         "We beginnen met een diepgaande analyse van uw bedrijfsbehoeften, doelstellingen en uitdagingen.",
+      /* Wat gaan we doen? Nou dit dus: */
       activities: [
         "Stakeholder interviews en workshops",
         "Analyse van bedrijfsvereisten",
@@ -16,6 +27,7 @@ export default function Werkwijze() {
         "Gebruikersonderzoek en persona-ontwikkeling",
         "Definitie van projectscope",
       ],
+      /* En wat krijg je dan? Dit pakketje: */
       deliverables: [
         "Project roadmap",
         "Technisch architectuurdocument",
@@ -46,6 +58,7 @@ export default function Werkwijze() {
     },
     {
       phase: "03",
+      /* Hier gebeurt de magie bro */
       title: "Ontwikkeling & Implementatie",
       duration: "4-12 weken",
       description:
@@ -67,6 +80,7 @@ export default function Werkwijze() {
     },
     {
       phase: "04",
+      /* Even checken of alles niet ontploft */
       title: "Testen & Kwaliteitsborging",
       duration: "1-2 weken",
       description:
@@ -88,6 +102,7 @@ export default function Werkwijze() {
     },
     {
       phase: "05",
+      /* LETS GO LIVE BABY */
       title: "Implementatie & Lancering",
       duration: "1 week",
       description:
@@ -109,6 +124,7 @@ export default function Werkwijze() {
     },
     {
       phase: "06",
+      /* We laten je niet vallen */
       title: "Ondersteuning & Onderhoud",
       duration: "Doorlopend",
       description:
@@ -130,11 +146,16 @@ export default function Werkwijze() {
     },
   ];
 
+  /*
+   * Onze gereedschapskist en mindset.
+   * Hoe wij zorgen dat je niet met bagger eindigt.
+   */
   const methodologies = [
     {
       name: "Agile Ontwikkeling",
       description:
         "Flexibele ontwikkelingsmethodiek met korte sprints en regelmatige feedback.",
+      /* Snel schakelen gap */
       benefits: [
         "Snelle iteraties",
         "Flexibiliteit voor wijzigingen",
@@ -145,6 +166,7 @@ export default function Werkwijze() {
       name: "DevOps Praktijken",
       description:
         "Geïntegreerde development en operations voor snellere en betrouwbaardere releases.",
+      /* Automatisering is key */
       benefits: [
         "Continuous Integration/Deployment",
         "Geautomatiseerd testen",
@@ -155,6 +177,7 @@ export default function Werkwijze() {
       name: "Kwaliteit Eerst",
       description:
         "Kwaliteit staat centraal in elk aspect van het ontwikkelingsproces.",
+      /* Geen gepruts */
       benefits: [
         "Code reviews",
         "Geautomatiseerd testen",
@@ -165,11 +188,14 @@ export default function Werkwijze() {
 
   return (
     <div className="min-h-screen bg-[var(--c-bg-main)]">
-      {/* Header */}
+      {/* 
+        Header: De binnenkomer
+        Lekker duidelijk maken waar we het over hebben
+      */}
       <section className="border-b border-[var(--c-border-subtle)] bg-[var(--c-bg-soft)]">
         <div className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
           <div className="text-center max-w-3xl mx-auto">
-            {/* GEEN extra "Werkwijze" titel hier */}
+            {/* GEEN extra "Werkwijze" titel hier, we doen het zo */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--c-text-main)] mb-4">
               Ons Development Proces
             </h1>
@@ -180,7 +206,10 @@ export default function Werkwijze() {
         </div>
       </section>
 
-      {/* Process Overview */}
+      {/* 
+        De roadmap, de reis, de trip.
+        Stap voor stap uitleggen wat er gaat gebeuren.
+      */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -193,6 +222,7 @@ export default function Werkwijze() {
 
           <div className="space-y-14 sm:space-y-16">
             {phases.map((phase, index) => {
+              /* Om en om, want dat ziet er slick uit */
               const isEven = index % 2 === 0;
 
               return (
@@ -202,7 +232,7 @@ export default function Werkwijze() {
                     isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                   } items-center gap-10 lg:gap-14`}
                 >
-                  {/* Tekst / kaart */}
+                  {/* Tekst / kaart gedeelte */}
                   <div className="lg:w-1/2">
                     <div className="card-soft bg-[var(--c-bg-soft)] p-8 sm:p-9">
                       <div className="flex items-center gap-4 mb-6">
@@ -225,6 +255,7 @@ export default function Werkwijze() {
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
+                          {/* Wat gaan we doen */}
                           <h4 className="font-semibold text-[var(--c-text-main)] mb-3 text-sm sm:text-base">
                             Activiteiten:
                           </h4>
@@ -234,6 +265,7 @@ export default function Werkwijze() {
                                 key={idx}
                                 className="flex items-start text-[var(--c-text-muted)] text-sm"
                               >
+                                {/* Pijltje erbij, hppakee */}
                                 <svg
                                   className="w-4 h-4 text-[var(--c-primary)] mr-2 mt-0.5 flex-shrink-0"
                                   fill="none"
@@ -254,6 +286,7 @@ export default function Werkwijze() {
                         </div>
 
                         <div>
+                          {/* Wat krijg je */}
                           <h4 className="font-semibold text-[var(--c-text-main)] mb-3 text-sm sm:text-base">
                             Oplevering:
                           </h4>
@@ -285,7 +318,7 @@ export default function Werkwijze() {
                     </div>
                   </div>
 
-                  {/* Grote fase cirkel rechts/links */}
+                  {/* Grote nummer aan de andere kant */}
                   <div className="lg:w-1/2 flex justify-center">
                     <div className="w-24 h-24 rounded-full bg-[var(--c-primary)] text-white flex items-center justify-center text-4xl font-bold shadow-md">
                       {phase.phase}
@@ -298,7 +331,10 @@ export default function Werkwijze() {
         </div>
       </section>
 
-      {/* Methodologies */}
+      {/* 
+        Methodologies: Hoe we de wedstrijd winnen
+        Geen geheimzinnig gedoe, gewoon harde skills.
+      */}
       <section className="py-16 sm:py-20 bg-[var(--c-bg-soft)] border-top border-[var(--c-border-subtle)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -352,7 +388,10 @@ export default function Werkwijze() {
         </div>
       </section>
 
-      {/* Communication & Collaboration */}
+      {/* 
+        Communication: Blijf in de loop
+        We gaan je niet ghosten, beloofd.
+      */}
       <section className="py-16 sm:py-20 bg-[var(--c-bg-main)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -371,6 +410,7 @@ export default function Werkwijze() {
                 title: "Wekelijkse Updates",
                 description:
                   "Gestructureerde voortgangsrapportages en demo's.",
+                /* Icon: report */
                 icon: (
                   <svg
                     className="w-6 h-6"
@@ -390,6 +430,7 @@ export default function Werkwijze() {
               {
                 title: "Real-time Feedback",
                 description: "Directe communicatie via Slack of Teams.",
+                /* Icon: chat */
                 icon: (
                   <svg
                     className="w-6 h-6"
@@ -409,6 +450,7 @@ export default function Werkwijze() {
               {
                 title: "Project Dashboard",
                 description: "Live inzicht in project status en metrics.",
+                /* Icon: chart */
                 icon: (
                   <svg
                     className="w-6 h-6"
@@ -429,6 +471,7 @@ export default function Werkwijze() {
                 title: "Flexibele Planning",
                 description:
                   "Aanpassingen op basis van feedback en veranderende behoeften.",
+                /* Icon: calendar */
                 icon: (
                   <svg
                     className="w-6 h-6"
@@ -465,7 +508,10 @@ export default function Werkwijze() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* 
+        CTA: Kom maar op
+        Let's get down to business.
+      */}
       <section className="py-16 sm:py-20 bg-[var(--c-primary)]">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">

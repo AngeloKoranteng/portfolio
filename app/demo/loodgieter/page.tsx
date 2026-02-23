@@ -1,6 +1,9 @@
+// Yo, dit is de pagina voor de loodgieter gap
+// Alles wat met pijpen te maken heeft staat hier (niet doordenken svp)
 export default function LoodgieterDemo() {
   return (
     <div className="bg-gray-50 min-h-screen">
+      {/* Hero sectie - HIER begint het feestje */}
       <section className="bg-blue-600 text-white py-20 text-center px-6">
         <h1 className="text-4xl font-bold mb-4">Loodgieter Demo</h1>
         <p className="text-lg max-w-2xl mx-auto">
@@ -8,25 +11,25 @@ export default function LoodgieterDemo() {
         </p>
       </section>
 
-      {/* Diensten */}
+      {/* Diensten - Wat doen we eigenlijk voor die moneys? */}
       <section className="max-w-4xl mx-auto py-16 px-6">
         <h2 className="text-3xl font-bold mb-6 text-center">Onze Diensten</h2>
         <ul className="space-y-3 text-gray-700 text-lg list-disc list-inside">
-          <li>Spoedservice 24/7</li>
-          <li>Lekkages & Reparaties</li>
-          <li>Installatie van sanitair</li>
-          <li>Onderhoud & Preventie</li>
+          <li>Spoedservice 24/7 (ook om 3 uur 's nachts gap)</li>
+          <li>Lekkages & Reparaties (natte voeten zijn verleden tijd)</li>
+          <li>Installatie van sanitair (wc's enzo)</li>
+          <li>Onderhoud & Preventie (voorkomen is beter dan dweilen)</li>
         </ul>
       </section>
 
-      {/* Foto-galerij */}
+      {/* Foto-galerij - Bewijsmateriaal dat we echt werken */}
       <section className="max-w-7xl mx-auto py-16 px-6 grid md:grid-cols-3 gap-6">
         <img src="/demo/loodgieterontstoppen.jpg" alt="Loodgieter foto 1" className="w-full h-48 object-cover rounded-lg shadow" />
         <img src="/demo/loodgietergereedschap.jpg" alt="Loodgieter foto 2" className="w-full h-48 object-cover rounded-lg shadow" />
         <img src="/demo/loodgietermetklant.png" alt="Loodgieter foto 3" className="w-full h-48 object-cover rounded-lg shadow" />
       </section>
 
-      {/* CTA */}
+      {/* CTA - Call to Action (dus gewoon klikken nu) */}
       <section className="bg-gray-100 py-16 text-center px-6">
         <h2 className="text-3xl font-bold mb-4">Neem contact op!</h2>
         <p className="text-gray-700 max-w-2xl mx-auto mb-6">

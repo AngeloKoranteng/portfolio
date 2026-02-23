@@ -15,8 +15,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DevSoft - Software Development Bedrijf",
-  description: "Professionele software development diensten. Wij ontwikkelen moderne web applicaties, mobile apps en API's met Laravel, React, MySQL en meer.",
+  title: {
+    default: "DevSoft | Professionele Web & App Development",
+    template: "%s | DevSoft Development"
+  },
+  description: "DevSoft is uw partner voor moderne websites, webapplicaties en mobiele apps. Wij leveren maatwerk software oplossingen met Next.js, React en Laravel.",
+  keywords: ["web development", "app ontwikkeling", "software bedrijf", "Next.js", "React", "maatwerk software", "website laten maken"],
+  authors: [{ name: "DevSoft Team" }],
+  creator: "DevSoft Development",
+  publisher: "DevSoft",
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    url: "https://devsoft.nl",
+    title: "DevSoft | Professionele Web & App Development",
+    description: "Wij realiseren uw digitale ambities met high-end web & mobile development.",
+    siteName: "DevSoft Development",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DevSoft Development",
+    description: "Professionele software oplossingen voor uw bedrijf.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

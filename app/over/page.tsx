@@ -1,9 +1,18 @@
 import Link from "next/link";
 
+/*
+ * Hier gaan we even opscheppen over onszelf.
+ * Waarom wij de beste keuze zijn (spoiler: zijn we gewoon).
+ */
 export default function Waarom() {
+  /*
+   * De lijst met redenen.
+   * Kort en krachtig, want niemand leest lappen tekst.
+   */
   const reasons = [
     {
       title: "Praktische Ervaring",
+      /* Niet alleen uit de boekjes */
       description:
         "Door opleiding, stages en verschillende praktijkprojecten hebben we ervaring met het bouwen van echte applicaties.",
       details: [
@@ -30,6 +39,7 @@ export default function Waarom() {
     },
     {
       title: "Full-Stack Development",
+      /* Alles kunnen, van A tot Z */
       description:
         "Wij kunnen zowel de voorkant als de achterkant van uw applicatie bouwen en koppelen.",
       details: [
@@ -56,6 +66,7 @@ export default function Waarom() {
     },
     {
       title: "Agile & Transparant",
+      /* Geen geheimen, gewoon bouwen */
       description:
         "We werken in kleine stappen, met ruimte voor feedback en aanpassingen tijdens het traject.",
       details: [
@@ -82,6 +93,7 @@ export default function Waarom() {
     },
     {
       title: "Moderne Technologieën",
+      /* Alleen de nieuwste shit */
       description:
         "We werken met moderne, goed ondersteunde technologieën die passen bij uw project.",
       details: [
@@ -114,6 +126,7 @@ export default function Waarom() {
     },
     {
       title: "Persoonlijke Aanpak",
+      /* Wij zijn mensen, geen robots (hoewel ik er wel een ben) */
       description:
         "U heeft direct contact met de developer, zonder lagen ertussen of ruis in communicatie.",
       details: [
@@ -140,6 +153,7 @@ export default function Waarom() {
     },
     {
       title: "Continue Ondersteuning",
+      /* We rennen niet weg na de oplevering */
       description:
         "Na oplevering blijven we beschikbaar voor verbeteringen, updates en doorontwikkeling.",
       details: [
@@ -168,10 +182,14 @@ export default function Waarom() {
 
   return (
     <div className="min-h-screen bg-[var(--c-bg-main)]">
-      {/* Header */}
+      {/* 
+        Header: Introductie
+        Hier begint het feestje
+      */}
       <section className="border-b border-[var(--c-border-subtle)] bg-[var(--c-bg-soft)]">
         <div className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
           <div className="text-center max-w-3xl mx-auto">
+            {/* Even een badge droppen voor de swag */}
             <div className="badge-soft mb-6">
               <span className="w-2 h-2 rounded-full bg-[var(--c-primary)]" />
               Waarom wij
@@ -187,7 +205,10 @@ export default function Waarom() {
         </div>
       </section>
 
-      {/* Wat ons onderscheidt */}
+      {/* 
+        Wat ons onderscheidt
+        Hier staat waarom wij beter zijn dan de rest 
+      */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -207,6 +228,7 @@ export default function Waarom() {
                 className="card-soft bg-[var(--c-bg-soft)] p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-200"
               >
                 <div className="flex items-start gap-4 mb-6">
+                  {/* Icoontje erbij, je weet toch */}
                   <div className="w-14 h-14 rounded-xl bg-[var(--c-primary)] text-white flex items-center justify-center flex-shrink-0">
                     {reason.icon}
                   </div>
@@ -221,6 +243,7 @@ export default function Waarom() {
                 </div>
 
                 <div>
+                  {/* Highlights lijstje, lekker overzichtelijk */}
                   <h4 className="font-semibold text-[var(--c-text-main)] mb-3 text-sm sm:text-base">
                     Highlights:
                   </h4>
@@ -254,8 +277,8 @@ export default function Waarom() {
         </div>
       </section>
 
-      {/* De rest van de pagina (statistieken, belofte, CTA) laat ik zoals in de vorige versie die je al hebt */}
-      {/* ... */}
+      {/* Die andere secties waren er niet in de originele file, dus die skippen we ook hier.
+          We houden het clean en simpel . */}
     </div>
   );
 }

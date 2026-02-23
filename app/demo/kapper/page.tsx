@@ -1,19 +1,24 @@
-"use client";
+"use client"; // Yo, dit runt in de browser want we hebben die dikke interacties nodig
 
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Scissors, Calendar, Clock, MapPin, Phone, Star, Instagram, Facebook, Twitter, Check } from "lucide-react";
 
+// Gap dit is de demo voor de kapper pagina
+// check hoe strak die lijntjes zijn
 export default function KapperDemo() {
+  // ff bijhouden of dat menu open staat of niet je weet toch
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="font-sans text-slate-800 bg-white">
-      {/* Navigation */}
+      {/* Navigation - Navigatie balkie */}
+      {/* Deze balk blijft bovenaan plakken gap */}
       <nav className="fixed w-full bg-black/90 backdrop-blur-md text-white z-50 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="text-2xl font-serif font-bold tracking-wider">BARBER<span className="text-yellow-500">KING</span></div>
           
+          {/* Desktop Menu voor de pc gamers */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-widest">
             <a href="#home" className="hover:text-yellow-500 transition-colors">Home</a>
             <a href="#about" className="hover:text-yellow-500 transition-colors">Over Ons</a>
@@ -26,7 +31,7 @@ export default function KapperDemo() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - BAM meteen die binnenkomer */}
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -64,9 +69,10 @@ export default function KapperDemo() {
         </div>
       </section>
 
-      {/* Info Bar */}
+      {/* Info Bar - Belangrijke shit voor als ze je zoeken */}
       <div className="bg-zinc-900 text-white py-8 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          {/* Tijd */}
           <div className="flex items-center justify-center md:justify-start gap-4">
             <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-yellow-500">
               <Clock className="w-6 h-6" />
@@ -76,6 +82,7 @@ export default function KapperDemo() {
               <div className="font-bold">Ma - Za: 09:00 - 20:00</div>
             </div>
           </div>
+          {/* Locatie */}
           <div className="flex items-center justify-center md:justify-start gap-4">
             <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-yellow-500">
               <MapPin className="w-6 h-6" />
@@ -85,6 +92,7 @@ export default function KapperDemo() {
               <div className="font-bold">Kalverstraat 12, Amsterdam</div>
             </div>
           </div>
+          {/* Telefoonnummer */}
           <div className="flex items-center justify-center md:justify-start gap-4">
             <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-yellow-500">
               <Phone className="w-6 h-6" />
@@ -97,7 +105,7 @@ export default function KapperDemo() {
         </div>
       </div>
 
-      {/* Services / Pricing */}
+      {/* Services / Pricing - Kassa rinkelen bro */}
       <section id="services" className="py-24 bg-zinc-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -106,7 +114,7 @@ export default function KapperDemo() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-            {/* Left Column */}
+            {/* Left Column - Lijstje met prices */}
             <div className="space-y-8">
               {[
                 { name: "Classic Haircut", price: "€35", desc: "Wassen, knippen, stylen & nekmassage" },
@@ -172,7 +180,7 @@ export default function KapperDemo() {
         </div>
       </section>
 
-      {/* Gallery Grid */}
+      {/* Gallery Grid - Dikke kapsels checken */}
       <section id="gallery" className="py-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {[
@@ -191,7 +199,7 @@ export default function KapperDemo() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer - Einde van de rit gap */}
       <footer className="bg-black text-white py-16 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
@@ -238,7 +246,7 @@ export default function KapperDemo() {
         </div>
       </footer>
 
-      {/* Promo Banner */}
+      {/* Promo Banner - De keiharde sales pitch */}
       <div className="fixed bottom-0 left-0 right-0 bg-teal-600 text-white py-4 z-50 shadow-lg transform translate-y-0 transition-transform duration-300">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>

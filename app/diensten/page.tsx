@@ -1,22 +1,25 @@
-import Link from "next/link";
-import FadeInSection from "../components/FadeInSection";
+import Link from "next/link"; // voor die linkjes
+import FadeInSection from "../components/FadeInSection"; // die fade animatie dinges
 
+// component voor de diensten pagina
 export default function Diensten() {
+  // lijstje met alles wat we kunnen fixen voor je
   const services = [
     {
       title: "Web Development",
       description:
         "Moderne, responsive webapplicaties gebouwd met de nieuwste technologieën.",
       features: [
-        "Frontend development met React & Next.js",
-        "Backend systemen met Laravel of Node.js",
-        "Responsive design voor alle schermformaten",
-        "Basis SEO en performance optimalisatie",
-        "Koppeling met externe API's",
-        "Eenvoudige beheeromgevingen (bijv. CMS)",
+        "Frontend development met React & Next.js", // de voorkant
+        "Backend systemen met Laravel of Node.js", // de achterkant
+        "Responsive design voor alle schermformaten", // mobiel, tablet, alles
+        "Basis SEO en performance optimalisatie", // zodat google je vindt
+        "Koppeling met externe API's", // praten met andere services
+        "Eenvoudige beheeromgevingen (bijv. CMS)", // zelf dingen aanpassen
       ],
-      technologies: ["React", "Next.js", "Laravel", "PHP", "Node.js", "MySQL"],
+      technologies: ["React", "Next.js", "Laravel", "PHP", "Node.js", "MySQL"], // onze gereedschapskist
       icon: (
+        // svg icoontje, beetje code spaghetti maar ziet er leuk uit
         <svg
           className="w-7 h-7"
           fill="none"
@@ -37,12 +40,12 @@ export default function Diensten() {
       description:
         "Maatwerk webapplicaties voor interne tools, dashboards en portals.",
       features: [
-        "Overzichtelijke dashboards met belangrijke KPI's",
-        "Inloggen en gebruikersrollen",
-        "Data ophalen en weergeven vanuit API's",
-        "Formulieren, validatie en workflows",
-        "Filters, tabellen en zoekfunctionaliteit",
-        "Uitbreidbare architectuur voor toekomstige features",
+        "Overzichtelijke dashboards met belangrijke KPI's", // grafiekjes enzo
+        "Inloggen en gebruikersrollen", // wie mag wat zien
+        "Data ophalen en weergeven vanuit API's", // data slurpen
+        "Formulieren, validatie en workflows", // invulvelden checken
+        "Filters, tabellen en zoekfunctionaliteit", // dingen terugvinden
+        "Uitbreidbare architectuur voor toekomstige features", // toekomstproof
       ],
       technologies: ["React", "TypeScript", "REST API", "Tailwind CSS"],
       icon: (
@@ -66,12 +69,12 @@ export default function Diensten() {
       description:
         "Robuuste backends en API's die veilig en onderhoudbaar zijn.",
       features: [
-        "REST API's voor web en mobile",
-        "Databasemodellen en relaties opzetten",
-        "Authenticatie (login) en autorisatie (rollen)",
-        "Basic logging en foutafhandeling",
-        "Integraties met externe systemen",
-        "Schaalbaar opgezet voor groei",
+        "REST API's voor web en mobile", // endpointjes bouwen
+        "Databasemodellen en relaties opzetten", // hoe slaan we de data op
+        "Authenticatie (login) en autorisatie (rollen)", // veiligheid boven alles
+        "Basic logging en foutafhandeling", // als het stuk gaat weten we waarom
+        "Integraties met externe systemen", // koppelen met de rest van de wereld
+        "Schaalbaar opgezet voor groei", // klaar voor miljoenen gebruikers (hopelijk)
       ],
       technologies: ["Laravel", "Node.js", "Express", "MySQL", "PostgreSQL"],
       icon: (
@@ -95,12 +98,12 @@ export default function Diensten() {
       description:
         "Samen kijken naar wat technisch haalbaar is en wat slim is om als eerste te bouwen.",
       features: [
-        "Meedenken over functionaliteit en prioriteiten",
-        "Adviseren over technologie stack",
-        "Technical review van bestaande code of oplossingen",
-        "Helpen bij voorbereiden van een MVP",
-        "Uitleg in begrijpelijke taal",
-        "Duidelijke roadmap richting realisatie",
+        "Meedenken over functionaliteit en prioriteiten", // wat gaan we eigenlijk doen
+        "Adviseren over technologie stack", // welke tools gebruiken we
+        "Technical review van bestaande code of oplossingen", // code checken
+        "Helpen bij voorbereiden van een MVP", // klein beginnen
+        "Uitleg in begrijpelijke taal", // geen nerdtalk
+        "Duidelijke roadmap richting realisatie", // stappenplan
       ],
       technologies: ["Architectuur", "Code review", "Best practices"],
       icon: (
@@ -124,12 +127,12 @@ export default function Diensten() {
       description:
         "Na de eerste versie verder bouwen en bestaande onderdelen verbeteren.",
       features: [
-        "Kleine bugs oplossen",
-        "Verbeteringen in UX en performance",
-        "Nieuwe pagina's of functionaliteit toevoegen",
-        "Updaten van dependencies waar nodig",
-        "Technische schuld stap voor stap opruimen",
-        "Op basis van vaste afspraken of strippenkaart",
+        "Kleine bugs oplossen", // foutjes fixen
+        "Verbeteringen in UX en performance", // sneller en mooier maken
+        "Nieuwe pagina's of functionaliteit toevoegen", // extra features
+        "Updaten van dependencies waar nodig", // alles up to date houden
+        "Technische schuld stap voor stap opruimen", // troep opruimen
+        "Op basis van vaste afspraken of strippenkaart", // betaling regelen
       ],
       technologies: ["Refactoring", "Monitoring", "Iteratieve verbetering"],
       icon: (
@@ -153,12 +156,12 @@ export default function Diensten() {
       description:
         "Snel een eerste werkende versie om een idee te testen of te laten zien.",
       features: [
-        "Klikbare prototypes of simpele werkende versie",
-        "Focus op kernfunctionaliteit",
-        "Snelle oplevering i.p.v. perfectie",
-        "Geschikt voor demo's aan stakeholders",
-        "Basis code waar later op doorgebouwd kan worden",
-        "Eerlijk advies wat wel/niet nodig is in v1",
+        "Klikbare prototypes of simpele werkende versie", // snel iets klikbaars
+        "Focus op kernfunctionaliteit", // alleen het belangrijkste
+        "Snelle oplevering i.p.v. perfectie", // snelheid boven alles
+        "Geschikt voor demo's aan stakeholders", // showen aan de baas
+        "Basis code waar later op doorgebouwd kan worden", // goede start
+        "Eerlijk advies wat wel/niet nodig is in v1", // geen onzin verkopen
       ],
       technologies: ["React", "Next.js", "Laravel", "Figma"],
       icon: (
@@ -179,6 +182,7 @@ export default function Diensten() {
     },
   ];
 
+  // ons stappenplan, straight to the point
   const processSteps = [
     {
       step: "01",
@@ -207,8 +211,10 @@ export default function Diensten() {
   ];
 
   return (
+    // container div
     <div className="min-h-screen bg-[var(--c-bg-main)]">
-      {/* Header */}
+      
+      {/* Header sectie met titel */}
       <section className="border-b border-[var(--c-border-subtle)] bg-[var(--c-bg-soft)]">
         <div className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
           <FadeInSection>
@@ -229,7 +235,7 @@ export default function Diensten() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid, hier komen die kaarten */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <FadeInSection>
@@ -244,6 +250,7 @@ export default function Diensten() {
             </div>
           </FadeInSection>
 
+          {/* Grid setup */}
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <FadeInSection key={service.title} delay={index * 0.08}>
@@ -272,6 +279,7 @@ export default function Diensten() {
                           key={idx}
                           className="flex items-start text-[var(--c-text-muted)] text-sm"
                         >
+                          {/* check icoontje svg */}
                           <svg
                             className="w-4 h-4 text-[var(--c-primary)] mr-2 mt-0.5 flex-shrink-0"
                             fill="none"
@@ -313,7 +321,7 @@ export default function Diensten() {
         </div>
       </section>
 
-      {/* Proces */}
+      {/* Proces, hoe gaan we te werk */}
       <section className="py-16 sm:py-20 bg-[var(--c-bg-soft)] border-y border-[var(--c-border-subtle)]">
         <div className="max-w-7xl mx-auto px-6">
           <FadeInSection>
@@ -327,6 +335,7 @@ export default function Diensten() {
             </div>
           </FadeInSection>
 
+          {/* Stappen in kaartjes */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((item, index) => (
               <FadeInSection key={item.step} delay={index * 0.08}>
@@ -347,7 +356,7 @@ export default function Diensten() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA, call to action, actieknop */}
       <section className="py-16 sm:py-20 bg-[var(--c-primary)]">
         <div className="max-w-4xl mx-auto text-center px-6">
           <FadeInSection>

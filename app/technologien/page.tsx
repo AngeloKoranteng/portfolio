@@ -1,11 +1,21 @@
 import Link from "next/link";
 
+/*
+ * Yo, dit scherm is voor de nerds (zoals wij).
+ * Hier staat met welke tools ik jou een baas maak.
+ * Geen saaie lijst, gewoon wat ik kan.
+ */
 export default function Technologien() {
+  /*
+   * De tech stack.
+   * Oftewel: mijn gereedschapskist.
+   */
   const techCategories = [
     {
       category: "Frontend Development",
       description:
         "Technologieën waarmee ik moderne, responsive interfaces bouw voor webapplicaties.",
+      /* Voorkantjes bouwen bro */
       technologies: [
         {
           name: "React",
@@ -22,6 +32,7 @@ export default function Technologien() {
         },
         {
           name: "Next.js",
+          /* Beste framework ooit gap */
           description:
             "Framework bovenop React dat routing, data fetching en performance optimalisaties eenvoudiger maakt.",
           expertise: "Gevorderd",
@@ -35,6 +46,7 @@ export default function Technologien() {
         },
         {
           name: "TypeScript",
+          /* Zonder dit ben je nergens */
           description:
             "Voegt types toe aan JavaScript zodat fouten eerder worden gevonden en de code beter te onderhouden is.",
           expertise: "Gevorderd",
@@ -48,6 +60,7 @@ export default function Technologien() {
         },
         {
           name: "Tailwind CSS",
+          /* Styling like a boss */
           description:
             "Utility-first CSS framework waarmee ik snel consistente layouts en componenten kan maken.",
           expertise: "Ervaren",
@@ -65,9 +78,11 @@ export default function Technologien() {
       category: "Backend Development",
       description:
         "Technologieën voor het bouwen van API's en backends die data opslaan en logica afhandelen.",
+      /* Achterkantjes, de motor van de auto */
       technologies: [
         {
           name: "Laravel",
+          /* PHP is not dead, trust me */
           description:
             "PHP framework waarin ik complete backends kan opzetten met routing, modellen, authenticatie en views.",
           expertise: "Ervaren",
@@ -107,6 +122,7 @@ export default function Technologien() {
         },
         {
           name: "Express.js",
+          /* Simpel en snel, hppakee */
           description:
             "Minimalistisch Node.js framework dat handig is voor het snel opzetten van API’s en routes.",
           expertise: "Gevorderd",
@@ -118,6 +134,7 @@ export default function Technologien() {
     },
     {
       category: "Database & Storage",
+      /* Waar we je data parkeren */
       description:
         "Systemen om data gestructureerd op te slaan, op te vragen en te beheren.",
       technologies: [
@@ -136,6 +153,7 @@ export default function Technologien() {
         },
         {
           name: "PostgreSQL",
+          /* De grote jongen */
           description:
             "Relationele database met extra features zoals JSON ondersteuning en krachtige queries.",
           expertise: "Gevorderd",
@@ -162,6 +180,7 @@ export default function Technologien() {
         },
         {
           name: "Redis",
+          /* Voor als het echt snel moet */
           description:
             "In-memory datastore, vooral bekeken en gebruikt voor caching in studie- en demo-projecten.",
           expertise: "Basis",
@@ -177,6 +196,7 @@ export default function Technologien() {
     },
     {
       category: "Mobile Development",
+      /* Apps voor op je telefoon bro */
       description:
         "Technologieën waarmee ik ervaring heb opgedaan in het bouwen van mobile apps tijdens opleiding en projecten.",
       technologies: [
@@ -199,6 +219,7 @@ export default function Technologien() {
             "Toolkit van Google voor cross-platform apps. Vooral gebruikt in studieprojecten.",
           expertise: "Basis",
           experienceYears: "1 jaar (opleiding)",
+          /* Cross platform ftw */
           useCases: [
             "Prototypes",
             "Kleinere mobiele applicaties",
@@ -236,6 +257,7 @@ export default function Technologien() {
     },
     {
       category: "DevOps & Cloud",
+      /* De wolken in */
       description:
         "Tools en platforms waar ik mee heb gewerkt voor deployment en automatisering.",
       technologies: [
@@ -254,6 +276,7 @@ export default function Technologien() {
         },
         {
           name: "AWS",
+          /* Niet te duur maken he */
           description:
             "Basiskennis van cloud-concepten en enkele diensten (zoals hosting en storage).",
           expertise: "Basis",
@@ -267,6 +290,7 @@ export default function Technologien() {
         },
         {
           name: "GitHub Actions",
+          /* Automatisch uitrollen, heerlijk */
           description:
             "Ingezet voor simpele CI/CD workflows, zoals automatisch testen of deployen.",
           expertise: "Gevorderd",
@@ -295,11 +319,13 @@ export default function Technologien() {
     },
     {
       category: "Tools & Utilities",
+      /* Alles wat mijn leven makkelijker maakt */
       description:
         "Tools die ik dagelijks gebruik om projecten gestructureerd en efficiënt te bouwen.",
       technologies: [
         {
           name: "Git",
+          /* Zodat we niet alles kwijt zijn na 1 fout */
           description:
             "Version control systeem dat ik dagelijks gebruik voor al mijn projecten.",
           expertise: "Ervaren",
@@ -354,6 +380,10 @@ export default function Technologien() {
     },
   ];
 
+  /*
+   * Kleurtjes fixen voor expertise.
+   * Want zwart-wit is ook zo saai.
+   */
   const getExpertiseColor = (expertise: string) => {
     const colors: Record<string, string> = {
       Ervaren: "bg-[var(--c-primary)] text-white",
@@ -365,7 +395,10 @@ export default function Technologien() {
 
   return (
     <div className="min-h-screen bg-[var(--c-bg-main)]">
-      {/* Header */}
+      {/* 
+        Header: Tech talk
+        Even laten zien wat we in huis hebben
+      */}
       <section className="border-b border-[var(--c-border-subtle)] bg-[var(--c-bg-soft)]">
         <div className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
           <div className="text-center max-w-3xl mx-auto">
@@ -384,7 +417,10 @@ export default function Technologien() {
         </div>
       </section>
 
-      {/* Tech Stack Overview */}
+      {/* 
+        Tech Stack Overview
+        Hier droppen we de kennisbommen.
+      */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -404,6 +440,7 @@ export default function Technologien() {
                 className="card-soft p-8 sm:p-10 bg-[var(--c-bg-soft)]"
               >
                 <div className="mb-8">
+                  {/* Categorie naam enzo */}
                   <h3 className="text-2xl sm:text-3xl font-semibold text-[var(--c-text-main)] mb-3">
                     {category.category}
                   </h3>
@@ -419,12 +456,14 @@ export default function Technologien() {
                       className="rounded-xl border border-[var(--c-border-subtle)] bg-[var(--c-surface)] p-5 sm:p-6 hover:shadow-md transition-shadow"
                     >
                       <div className="flex items-start gap-4">
+                        {/* Icoontje erbij */}
                         <div className="text-3xl flex-shrink-0">{tech.icon}</div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between mb-2">
                             <h4 className="text-xl font-semibold text-[var(--c-text-main)]">
                               {tech.name}
                             </h4>
+                            {/* Hoeveel jaar ervaring? */}
                             <div className="flex items-center gap-2">
                               <span
                                 className={`px-3 py-1 rounded-full text-xs font-semibold ${getExpertiseColor(
@@ -444,6 +483,7 @@ export default function Technologien() {
                           </p>
 
                           <div>
+                            {/* Waar gebruik ik dit voor? */}
                             <h5 className="font-semibold text-[var(--c-text-main)] mb-2 text-xs sm:text-sm">
                               Ideaal voor:
                             </h5>
@@ -568,7 +608,10 @@ export default function Technologien() {
         </div>
       </section>
 
-      {/* Technology Selection Process */}
+      {/* 
+        Technology Selection Process
+        Hoe we die keuzes maken zonder muntje op te gooien
+      */}
       <section className="py-16 sm:py-20 bg-[var(--c-bg-main)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -627,7 +670,10 @@ export default function Technologien() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* 
+        CTA Section
+        Bel me, schrijf me, ik hoor het wel 
+       */}
       <section className="py-16 sm:py-20 bg-[var(--c-primary)]">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
