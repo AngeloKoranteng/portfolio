@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DevSoftWeb website
 
-## Getting Started
+Nederlandstalige bedrijfswebsite met Next.js App Router, React, TypeScript en Tailwind CSS.
 
-First, run the development server:
+## Lokaal starten
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Vereist Node.js 20.9 of hoger.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configuratie
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Maak `.env.local` aan; zet dit bestand nooit in versiebeheer.
 
-## Learn More
+```dotenv
+EMAIL_USER=uw-gmail-account
+EMAIL_PASS=uw-google-app-wachtwoord
+EMAIL_TO=ontvanger-van-contactaanvragen
+# Optioneel: alleen geladen na toestemming van de bezoeker
+NEXT_PUBLIC_GA_ID=
+```
 
-To learn more about Next.js, take a look at the following resources:
+Het contactformulier gebruikt Nodemailer met Gmail. Zonder volledige e-mailconfiguratie geeft het formulier een tijdelijke-onbeschikbaarmelding. Het openbare contactadres en telefoonnummer staan in `app/lib/contact.ts`. Het openbare adres is `angelokoranteng36@gmail.com`, zoals opgegeven door Angelo Koranteng.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Inhoud aanpassen
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Homepage: `app/HomeClient.tsx` (servercomponent, geen animatiebibliotheek nodig).
+- Klantprojecten: `app/data/projects.ts`; gedeelde kaarten: `app/components/LiveProjects.tsx`.
+- Live voorbeelden: https://yomarraonline.nl en https://jwmcleaning.nl.
+- Echte screenshots: `public/portfolio/live/`. Vernieuw deze bij een redesign van de klantwebsite; er worden geen externe screenshotsdiensten of iframes geladen.
+- Demo-projecten staan apart onder de klantprojecten op `/portfolio`.
+- Aanvragen voor onderhoud: `/contact?project=onderhoud` vult de interesse in onderhoud alvast in.
+- Metadata staat bij de pagina’s. Deelafbeelding: `app/opengraph-image.tsx`. Sitemap en robotsbestand: `app/sitemap.ts` en `app/robots.ts`.
+- Het domein `https://devsoftweb.nl` is ingesteld op basis van de aangeleverde bedrijfsgegevens. Controleer dit bij deployment in `app/layout.tsx`, `app/sitemap.ts` en `app/robots.ts`.
 
-## Deploy on Vercel
+## Afspraken die de eigenaar nog moet invullen
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Starter websites beginnen bij €750 excl. btw. De richtprijzen in de offerte zijn €750 / €1.500 / €2.500 / €3.500 / €5.000+. Betaling: 50% bij akkoord en 50% bij oplevering. Onderhoud is optioneel voor €79 per maand. De btw-behandeling van onderhoud, looptijd, opzegtermijn en tarieven voor extra werk zijn nog niet opgegeven en worden niet verzonnen.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+De persoonlijke introductie noemt Angelo Koranteng. Voeg een eigen portret, verdere bedrijfsgegevens en werkgebied toe zodra die beschikbaar zijn. De privacypagina beschrijft de huidige formulier- en analyticswerking; vul deze aan op basis van de daadwerkelijke bedrijfsgegevens, bewaartermijnen, hosting en afspraken met dienstverleners.
+
+## Formulier en statistieken
+
+De contact-API valideert invoer op de server, gebruikt een honeypot, beperkt verzoeken en stelt `replyTo` in op het gecontroleerde adres van de aanvrager. SMTP-foutdetails worden niet naar bezoekers gestuurd.
+
+De limiet van vijf geldige aanvragen per tien minuten per IP geldt **per serverproces**. Configureer voor productie een gedeelde limiet of infrastructuurlimiet en laat alleen vertrouwde proxies de `x-forwarded-for`-header bepalen. De in-memory limiter is geen volledige spambeveiliging bij meerdere serverless instances.
+
+Met een geldige `NEXT_PUBLIC_GA_ID` verschijnt een statistiekkeuze. Zonder toestemming wordt Google Analytics niet geladen. Bezoekers kunnen hun keuze via de footer aanpassen. Paginaweergaven en geslaagde aanvragen worden gemeten; formulierinhoud wordt niet met het conversie-event meegestuurd.
+
+## Controleren en bouwen
+
+```sh
+npm run lint
+npx tsc --noEmit
+npm run build
+npm start
+```
+
+De build haalt Geist-lettertypen op via `next/font/google`; daarvoor is netwerktoegang nodig. Controleer voor livegang de mobiele navigatie, beide projectlinks en e-mailbezorging met de productieconfiguratie. Een geslaagde build bevestigt geen e-mailbezorging.
+
+## Downloadbare offerte
+
+- Publieke download: `/downloads/devsoftweb-offerte.pdf`.
+- Downloadknoppen staan op de homepage en op `/werkwijze`.
+- Bewerkbare bron: `documents/devsoftweb-offerte.html`.
+- Vier A4-pagina’s in de huisstijl, met lokaal Geist-lettertype en licentie in `documents/assets/`.
+- Het openbare document is een sjabloon. Nummer DSW-2026-001 is als voorbeeld gemarkeerd. Vul per klant een uniek nummer, datum, vervaldatum (14 dagen), klantgegevens, definitieve projectomschrijving, prijs en planning in.
+- Voor opnieuw exporteren: open het HTML-bestand in Chrome, wacht tot het lettertype geladen is en kies Afdrukken → Opslaan als PDF, papier A4, schaal 100%, zonder kop- en voetteksten en met achtergrondafbeeldingen. Vervang daarna de PDF in `public/downloads/` en controleer alle vier pagina’s.
+- Bij prijswijzigingen: pas ook homepage, contact-FAQ, portfolio en de PDF-bron aan, en exporteer de PDF opnieuw.

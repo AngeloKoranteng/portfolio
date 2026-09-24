@@ -41,7 +41,7 @@ export default function RestaurantDemo() {
       <section className="bg-gray-100 py-16 text-center px-6">
         <h2 className="text-3xl font-bold mb-4">Reserveer jouw website!</h2>
         <p className="text-gray-700 max-w-2xl mx-auto mb-6">
-          Laat jouw restaurant online stralen. Website vanaf €500 inclusief hosting en domein.
+          Laat jouw restaurant online stralen. Vraag een voorstel op maat aan voor uw website, hosting en domein.
         </p>
         <a
           href="/contact"

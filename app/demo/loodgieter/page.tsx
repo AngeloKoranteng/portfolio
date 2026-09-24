@@ -41,7 +41,7 @@ export default function LoodgieterDemo() {
       <section className="bg-gray-100 py-16 text-center px-6">
         <h2 className="text-3xl font-bold mb-4">Neem contact op!</h2>
         <p className="text-gray-700 max-w-2xl mx-auto mb-6">
-          Laat jouw loodgietersbedrijf online groeien. Website vanaf €500 inclusief hosting en domein.
+          Laat jouw loodgietersbedrijf online groeien. Vraag een voorstel op maat aan voor uw website, hosting en domein.
         </p>
         <a
           href="/contact"

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Technologieën", description: "Bekijk de technologieën die DevSoftWeb inzet voor websites, apps en koppelingen op maat.", alternates: { canonical: "/technologien" } };
 import Link from "next/link";
 
 /*
@@ -387,8 +389,8 @@ export default function Technologien() {
   const getExpertiseColor = (expertise: string) => {
     const colors: Record<string, string> = {
       Ervaren: "bg-[var(--c-primary)] text-white",
-      Gevorderd: "bg-[var(--c-primary-soft)] text-white",
-      Basis: "bg-amber-500 text-white",
+      Gevorderd: "bg-teal-100 text-teal-900",
+      Basis: "bg-amber-100 text-amber-900",
     };
     return colors[expertise] || "bg-gray-500 text-white";
   };
@@ -437,7 +439,7 @@ export default function Technologien() {
             {techCategories.map((category, categoryIndex) => (
               <div
                 key={categoryIndex}
-                className="card-soft p-8 sm:p-10 bg-[var(--c-bg-soft)]"
+                className="card-soft p-4 sm:p-10 bg-[var(--c-bg-soft)]"
               >
                 <div className="mb-8">
                   {/* Categorie naam enzo */}
@@ -453,18 +455,18 @@ export default function Technologien() {
                   {category.technologies.map((tech, techIndex) => (
                     <div
                       key={techIndex}
-                      className="rounded-xl border border-[var(--c-border-subtle)] bg-[var(--c-surface)] p-5 sm:p-6 hover:shadow-md transition-shadow"
+                      className="min-w-0 rounded-xl border border-[var(--c-border-subtle)] bg-[var(--c-surface)] p-5 sm:p-6 hover:shadow-md transition-shadow"
                     >
                       <div className="flex items-start gap-4">
                         {/* Icoontje erbij */}
                         <div className="text-3xl flex-shrink-0">{tech.icon}</div>
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between mb-2">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                             <h4 className="text-xl font-semibold text-[var(--c-text-main)]">
                               {tech.name}
                             </h4>
                             {/* Hoeveel jaar ervaring? */}
-                            <div className="flex items-center gap-2">
+                            <div className="flex flex-wrap items-center gap-2">
                               <span
                                 className={`px-3 py-1 rounded-full text-xs font-semibold ${getExpertiseColor(
                                   tech.expertise
@@ -491,7 +493,7 @@ export default function Technologien() {
                               {tech.useCases.map((useCase, idx) => (
                                 <span
                                   key={idx}
-                                  className="px-3 py-1 rounded-full text-xs sm:text-sm bg-[var(--c-surface-alt)] text-[var(--c-text-main)] border border-[var(--c-border-subtle)]"
+                                  className="max-w-full break-words px-3 py-1 rounded-full text-xs sm:text-sm bg-[var(--c-surface-alt)] text-[var(--c-text-main)] border border-[var(--c-border-subtle)]"
                                 >
                                   {useCase}
                                 </span>

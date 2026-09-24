@@ -5,15 +5,11 @@ import { Menu, X } from 'lucide-react'; // icons importeren, menu hamburgertje e
 
 // hier maak ik een lijstje met alle links, scheelt weer typen later 
 const NAV_LINKS = [
-  { href: '/', label: 'Home' }, // gewoon naar huis
-  { href: '/diensten', label: 'Diensten' }, // wat fixen we allemaal
-  { href: '/werkwijze', label: 'Werkwijze' }, // hoe we te werk gaan
-  { href: '/technologien', label: 'Technologieën' }, // met welke tools we bouwen
-  { href: '/over', label: 'Over Ons' }, // wie zijn die gasten eigenlijk
-  { href: '/#waarom', label: 'Waarom Ons' }, // waarom je ons moet kiezen
-  { href: '/#pricing', label: 'Prijzen' }, // kosten enzo
-  { href: '/portfolio', label: 'Portfolio' }, // check wat we al gemaakt hebben
-  { href: '/contact', label: 'Contact', isPrimary: true }, // bel me, schrijf me!
+  { href: '/diensten', label: 'Diensten' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/werkwijze', label: 'Werkwijze' },
+  { href: '/over', label: 'Over DevSoftWeb' },
+  { href: '/contact', label: 'Contact', isPrimary: true },
 ];
 
 // dit is de header component, die balk bovenaan de pagina
@@ -25,19 +21,19 @@ export default function Header() {
     // header container met een wit achtergrondje en lijntje eronder
     <header className="bg-white shadow-sm border-b border-gray-100">
       {/* container om de breedte te beperken zodat t niet te breed wordt op grote schermen */}
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Hoofdnavigatie" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* flex container om logo en menu naast elkaar te zetten */}
         <div className="flex justify-between items-center h-16">
           {/* Logo links in de hoek */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-2xl font-bold text-teal-600">
-              DevSoft
+              DevSoftWeb
             </Link>
           </div>
           
           {/* Desktop menu - laat dit zien op grotere schermen, verberg op mobiel */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
+          <div className="hidden lg:block">
+            <div className="ml-10 flex items-center space-x-3">
               {/* we loopen door die NAV_LINKS array heen, scheelt copy paste werk */}
               {NAV_LINKS.map((link) => (
                 <Link 
@@ -58,13 +54,16 @@ export default function Header() {
           </div>
 
           {/* Mobiele menu knop - laat dit zien op kleine schermen zoals telefoons */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               // als je klikt, draaien we de state om (open wordt dicht, dicht wordt open)
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              onKeyDown={(event) => { if (event.key === "Escape") setIsMenuOpen(false); }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-teal-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">{isMenuOpen ? "Menu sluiten" : "Menu openen"}</span>
               {/* Laat hamburger zien als ie dicht is, en kruisje als ie open is */}
               {!isMenuOpen ? (
                 <Menu className="block h-6 w-6" /> // hamburger icon
@@ -77,7 +76,7 @@ export default function Header() {
 
         {/* Dit is het uitklapmenu voor mobiel, laat alleen zien als isMenuOpen true is */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div id="mobile-navigation" className="lg:hidden" onKeyDown={(event) => { if (event.key === "Escape") setIsMenuOpen(false); }}>
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-100">
               {/* Ook hier loopen we weer door de links, lekker consistent */}
               {NAV_LINKS.map((link) => (

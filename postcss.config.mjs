@@ -1,9 +1,6 @@
-// postcss.config.mjs
-
-/** @type {import('postcss-load-config').Config} */
 const config = {
   plugins: {
-    "@tailwindcss/postcss": {}, // <-- let op: NIET 'tailwindcss' zelf
+    "@tailwindcss/postcss": {},
   },
 };
 

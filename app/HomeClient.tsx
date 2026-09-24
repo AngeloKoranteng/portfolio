@@ -1,338 +1,293 @@
-"use client"; // dit moet er staan anders werkt niks in de browser
-// links en animaties importeren, je weet toch
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Code, Smartphone, Globe, Database, CheckCircle, Zap, Layout } from "lucide-react";
+import { ArrowRight, Check, Globe, Layers, Wrench } from "lucide-react";
+import OfferDownload from "./components/OfferDownload";
+import LiveProjects from "./components/LiveProjects";
+import HeroProjectCarousel from "./components/HeroProjectCarousel";
 
-// animatie instellingen: fade in van onderen
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-};
-
-// container die kinderen animeert achter elkaar
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1 // lekker na elkaar laten verschijnen
-    }
-  }
-};
-
-// onze diensten array, makkelijk aan te passen
-const SERVICES = [
-  {
-    icon: <Globe className="w-8 h-8" />, // wereldbol want we gaan internationaal
-    title: "Web Development",
-    desc: "Razendsnelle websites en webapplicaties gebouwd met Next.js en React."
-  },
-  {
-    icon: <Smartphone className="w-8 h-8" />, // telefoon icoontje
-    title: "App Development",
-    desc: "Native en cross-platform mobiele apps voor iOS en Android."
-  },
-  {
-    icon: <Database className="w-8 h-8" />, // database icoontje voor de backend boys
-    title: "Backend & API's",
-    desc: "Robuuste server-side oplossingen en API integraties die schalen."
-  }
-];
-
-// waarom wij lijstje
-const WHY_US_FEATURES = [
-  { title: "Modern Tech Stack", desc: "Wij gebruiken de nieuwste technologieën voor optimale performance." },
-  { title: "Transparante Communicatie", desc: "U bent altijd op de hoogte van de voortgang." },
-  { title: "Focus op Resultaat", desc: "Wij bouwen oplossingen die uw bedrijfsdoelen ondersteunen." }
-];
-
-// Home component, hier gebeurt de magie
 export default function HomeClient() {
   return (
-    // container voor de hele pagina
-    <div className="min-h-screen overflow-hidden bg-[var(--c-bg-main)]">
-      
-      {/* Hero sectie, het eerste wat je ziet */}
-      <section className="relative px-6 pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-        {/* Achtergrond sfeer elementen (die vage bollen) */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-          <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-teal-100/50 blur-3xl" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-slate-100/50 blur-3xl" />
-        </div>
-
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
-            {/* Linkerkant tekst fade in effect */}
-            <motion.div 
-              initial="initial"
-              animate="animate"
-              variants={staggerContainer}
-              className="max-w-2xl"
-            >
-              <motion.h1 variants={fadeInUp} className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight mb-8">
-                Wij bouwen de <br />
-                <span className="text-teal-600">
-                  digitale toekomst.
-                </span>
-              </motion.h1>
-
-              <motion.p variants={fadeInUp} className="text-xl text-slate-600 leading-relaxed mb-10 max-w-lg font-medium">
-                Van complexe webapplicaties tot strakke mobiele apps. Wij bouwen software die werkt voor uw bedrijf.
-              </motion.p>
-
-              {/* Bottons voor actie */}
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact" className="btn-main group">
-                  <span>Start uw project</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link href="/portfolio" className="btn-ghost">
-                  Bekijk ons werk
-                </Link>
-              </motion.div>
-
-              {/* USP's onder de buttons */}
-              <motion.div variants={fadeInUp} className="mt-12 flex items-center gap-8 text-[var(--c-text-muted)] text-sm font-medium">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[var(--c-primary)]" />
-                  <span>Maatwerk</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[var(--c-primary)]" />
-                  <span>Schaalbaar</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[var(--c-primary)]" />
-                  <span>Modern</span>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Rechterkant: Visueel element (die zwevende card) */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative hidden lg:block"
-            >
-              <div className="relative z-10 bg-white rounded-2xl shadow-2xl p-6 border border-slate-100 transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
-                {/* Nep browser window balkje */}
-                <div className="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
-                  <div className="ml-auto text-xs text-slate-400 font-mono">dashboard.tsx</div>
-                </div>
-                {/* Fake code blokken (skeleton loading style) */}
-                <div className="space-y-4">
-                  <div className="h-32 bg-slate-50 rounded-lg w-full animate-pulse" />
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="h-24 bg-slate-50 rounded-lg animate-pulse delay-75" />
-                    <div className="h-24 bg-slate-50 rounded-lg animate-pulse delay-100" />
-                    <div className="h-24 bg-slate-50 rounded-lg animate-pulse delay-150" />
-                  </div>
-                  <div className="h-40 bg-slate-50 rounded-lg w-full animate-pulse delay-200" />
-                </div>
-              </div>
-              
-              {/* Decoratieve vlekken achter de card */}
-              <div className="absolute -top-10 -right-10 w-24 h-24 bg-teal-500/10 rounded-full blur-xl" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[var(--c-primary)]/10 rounded-full blur-xl" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Sectie: Wat we doen */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--c-text-main)] mb-4">Onze Expertise</h2>
-            <p className="text-[var(--c-text-muted)] text-lg">
-              Wij leveren end-to-end development diensten, van concept tot lancering en onderhoud.
+      <div className="bg-[#f7f9f8]">
+        <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:py-24">
+          <div>
+            <p className="mb-6 text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">
+              DevSoftWeb · Websites & maatwerk
             </p>
+
+            <h1 className="max-w-2xl text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              Een website die past bij{" "}
+              <span className="text-teal-700">uw bedrijf.</span>
+            </h1>
+
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+              Van een professionele bedrijfswebsite tot een applicatie op maat.
+              Met direct contact met de ontwikkelaar en duidelijke afspraken van
+              idee tot oplevering.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/contact" className="btn-main">
+                Bespreek uw website
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+
+              <a href="#projecten" className="btn-ghost">
+                Bekijk ons werk
+              </a>
+            </div>
+
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-600">
+              {[
+                "Persoonlijk contact",
+                "Mobielvriendelijk",
+                "Onderhoud mogelijk",
+              ].map((text) => (
+                  <li key={text} className="flex items-center gap-2">
+                    <Check
+                        size={16}
+                        className="text-teal-700"
+                        aria-hidden="true"
+                    />
+                    {text}
+                  </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Loop door de services heen */}
-            {SERVICES.map((service, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-2xl bg-slate-50 hover:bg-white hover:shadow-xl border border-slate-100 transition-all duration-300 group"
-              >
-                <div className="w-14 h-14 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[var(--c-primary)] mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-bold text-[var(--c-text-main)] mb-3">{service.title}</h3>
-                <p className="text-[var(--c-text-muted)] leading-relaxed">
-                  {service.desc}
+          <HeroProjectCarousel />
+        </section>
+
+        <section
+            id="projecten"
+            className="scroll-mt-8 border-y border-slate-200 bg-white py-16 sm:py-20"
+        >
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-700">
+                  Gemaakt voor ondernemers
                 </p>
-              </motion.div>
+
+                <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                  Ons werk, live te bekijken.
+                </h2>
+
+                <p className="mt-4 max-w-2xl text-lg text-slate-600">
+                  Twee bedrijven, ieder met een eigen verhaal. Bekijk de websites
+                  die we voor hen hebben gebouwd.
+                </p>
+              </div>
+
+              <Link
+                  href="/portfolio"
+                  className="inline-flex items-center gap-2 font-medium text-teal-700"
+              >
+                Meer projecten
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+
+            <LiveProjects />
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-6 py-16 sm:py-20">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-700">
+            Waarmee kunnen we helpen?
+          </p>
+
+          <h2 className="mb-10 text-3xl font-bold text-slate-900">
+            Van eerste website tot volgende stap.
+          </h2>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                icon: Globe,
+                title: "Bedrijfswebsites",
+                text: "Een duidelijke online presentatie van uw bedrijf, diensten en contactmogelijkheden. Ontworpen voor desktop én mobiel.",
+              },
+              {
+                icon: Layers,
+                title: "Applicaties & koppelingen",
+                text: "Een dashboard, mobiele app of koppeling tussen systemen. Maatwerk dat aansluit op hoe uw bedrijf werkt.",
+              },
+              {
+                icon: Wrench,
+                title: "Onderhoud & support",
+                text: "Hulp na oplevering, van hosting en updates tot technische ondersteuning en verdere verbeteringen.",
+              },
+            ].map(({ icon: Icon, title, text }) => (
+                <article
+                    key={title}
+                    className="rounded-2xl border border-slate-200 bg-white p-7"
+                >
+                  <Icon
+                      className="mb-5 h-7 w-7 text-teal-700"
+                      aria-hidden="true"
+                  />
+
+                  <h3 className="mb-3 text-xl font-semibold">{title}</h3>
+
+                  <p className="leading-relaxed text-slate-600">{text}</p>
+
+                  <Link
+                      href="/diensten"
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-700"
+                  >
+                    Bekijk de mogelijkheden
+                    <ArrowRight size={16} aria-hidden="true" />
+                    <span className="sr-only"> voor {title}</span>
+                  </Link>
+                </article>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Pricing / Abonnement Sectie - Money in the bank gap */}
-      <section id="pricing" className="py-24 bg-slate-50 relative overflow-hidden">
-        {/* decoratie rondje */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal-100/30 rounded-full blur-3xl -z-10" />
-        
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--c-text-main)] mb-4">Website Onderhoud & Support</h2>
-            <p className="text-[var(--c-text-muted)] text-lg">
-              Na oplevering van uw website laten we u niet in de steek. Kies voor ons maandelijkse onderhoudsabonnement voor totale ontzorging.
+        <section id="waarom" className="bg-slate-900 py-16 text-white sm:py-20">
+          <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-300">
+                Samenwerken met DevSoftWeb
+              </p>
+
+              <h2 className="text-3xl font-bold sm:text-4xl">
+                Korte lijnen.
+                <br />
+                Duidelijke afspraken.
+              </h2>
+
+              <p className="mt-5 max-w-lg leading-relaxed text-slate-300">
+                U spreekt rechtstreeks met de ontwikkelaar. We bespreken wat u
+                nodig heeft, maken een plan en houden u betrokken tijdens het
+                bouwen.
+              </p>
+
+              <Link
+                  href="/over"
+                  className="mt-6 inline-flex items-center gap-2 font-medium text-teal-200"
+              >
+                Leer DevSoftWeb kennen
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+
+            <ol className="space-y-7">
+              {[
+                ["Kennismaken", "We bespreken uw bedrijf, wensen en budget."],
+                [
+                  "Ontwerpen & bouwen",
+                  "U ziet de voortgang en geeft feedback op de website.",
+                ],
+                [
+                  "Online & verder",
+                  "We leveren de website op en bespreken het onderhoud.",
+                ],
+              ].map(([title, text], i) => (
+                  <li key={title} className="flex gap-5">
+                <span className="text-sm font-semibold text-teal-300">
+                  0{i + 1}
+                </span>
+
+                    <div>
+                      <h3 className="mb-2 text-lg font-semibold">{title}</h3>
+                      <p className="text-slate-300">{text}</p>
+                    </div>
+                  </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section
+            id="pricing"
+            className="mx-auto max-w-7xl px-6 py-16 sm:py-20"
+        >
+          <div className="mb-10 max-w-2xl">
+            <h2 className="text-3xl font-bold text-slate-900">
+              Een helder aanbod.
+            </h2>
+
+            <p className="mt-4 text-lg text-slate-600">
+              De omvang van uw project bepaalt de prijs. Vooraf bespreken we wat
+              inbegrepen is en welke terugkerende kosten er zijn.
             </p>
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-md mx-auto bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden relative"
-          >
-            {/* Popuair labeltje */}
-            <div className="absolute top-6 right-6 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              Meest Gekozen
-            </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            <article className="rounded-2xl border border-slate-200 bg-white p-8">
+              <h3 className="text-2xl font-semibold">Starter website</h3>
 
-            <div className="p-8 pb-0 text-center">
-              <h3 className="text-2xl font-bold text-slate-800 mb-2">Service & Onderhoud</h3>
-              <div className="text-5xl font-bold text-teal-600 mb-4">
-                €79<span className="text-lg text-slate-400 font-normal">/mnd</span>
-              </div>
-              <p className="text-slate-500 mb-6">
-                Alles wat u nodig heeft om uw website of app veilig, snel en up-to-date te houden.
+              <p className="my-5 text-3xl font-bold text-teal-700">
+                Vanaf €750{" "}
+                <span className="text-base font-normal">excl. btw</span>
               </p>
-            </div>
 
-            {/* Lijstje met features */}
-            <div className="bg-slate-50 p-8 border-t border-slate-100">
-              <ul className="space-y-4 mb-8">
+              <p className="mb-6 leading-relaxed text-slate-600">
+                Een voorstel op basis van uw pagina’s, functionaliteiten en
+                ontwerp. Hosting, domein en onderhoud worden afzonderlijk in de
+                offerte beschreven.
+              </p>
+
+              <Link href="/contact" className="btn-main">
+                Vraag een voorstel aan
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </article>
+
+            <article className="rounded-2xl border border-teal-200 bg-teal-50 p-8">
+              <h3 className="text-2xl font-semibold">Service & onderhoud</h3>
+
+              <p className="my-5 text-3xl font-bold text-teal-800">
+                €79 <span className="text-base font-normal">per maand</span>
+              </p>
+
+              <ul className="mb-6 space-y-3 text-slate-700">
                 {[
-                  "Premium Hosting & Domeinnaam",
-                  "24/7 Uptime Monitoring",
-                  "Dagelijkse Backups & Beveiliging",
-                  "Maandelijkse Security Updates",
-                  "1 Uur Technische Support per maand",
-                  "Snelheid & Performance Optimalisatie"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-700">
-                    <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
+                  "Hosting en domeinnaam",
+                  "Monitoring, back-ups en beveiligingsupdates",
+                  "1 uur technische ondersteuning per maand",
+                ].map((t) => (
+                    <li key={t} className="flex gap-2">
+                      <Check
+                          size={18}
+                          className="shrink-0 text-teal-700"
+                          aria-hidden="true"
+                      />
+                      {t}
+                    </li>
                 ))}
               </ul>
-              <Link href="/contact" className="block w-full text-center bg-teal-600 text-white font-bold py-4 rounded-xl hover:bg-teal-700 transition-all transform hover:scale-[1.02] shadow-lg shadow-teal-600/20">
-                Abonnement Afsluiten
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Features / Waarom Wij sectie */}
-      <section id="waarom" className="py-24 bg-[var(--c-bg-main)]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Linkerkant tekst */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--c-text-main)] mb-6">
-                Waarom kiezen voor <br />
-                <span className="text-[var(--c-primary)]">DevSoft?</span>
-              </h2>
-              <p className="text-[var(--c-text-muted)] text-lg mb-8">
-                Wij geloven in kwaliteit boven kwantiteit. Elk project krijgt onze volledige aandacht en expertise.
+              <p className="mb-6 text-sm leading-relaxed text-slate-600">
+                De btw, looptijd, opzegafspraken en eventuele extra werkzaamheden
+                worden in uw voorstel gespecificeerd.
               </p>
-              
-              <div className="space-y-6">
-                {/* Loopje door de features */}
-                {WHY_US_FEATURES.map((item, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="mt-1">
-                      <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center text-teal-600">
-                        <Zap className="w-4 h-4" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[var(--c-text-main)]">{item.title}</h4>
-                      <p className="text-sm text-[var(--c-text-muted)]">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-            
-            {/* Rechterkant grid met icoontjes */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4 mt-8">
-                  <div className="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
-                    <Code className="w-8 h-8 text-teal-500 mb-4" />
-                    <div className="font-bold text-lg">Clean Code</div>
-                  </div>
-                  <div className="bg-[var(--c-primary)] p-6 rounded-2xl shadow-lg text-white">
-                    <Layout className="w-8 h-8 mb-4" />
-                    <div className="font-bold text-lg">UX Design</div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
-                    <Smartphone className="w-8 h-8 text-purple-500 mb-4" />
-                    <div className="font-bold text-lg">Mobile First</div>
-                  </div>
-                  <div className="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
-                    <Globe className="w-8 h-8 text-green-500 mb-4" />
-                    <div className="font-bold text-lg">SEO Ready</div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+
+              <Link href="/contact?project=onderhoud" className="btn-main">
+                Onderhoud aanvragen
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section onderaan */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="bg-[var(--c-primary)] rounded-3xl p-12 text-white relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-full h-full opacity-10">
-              <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle,white,transparent)]" />
-            </div>
-            
-            <div className="relative z-10">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">Klaar om uw project te starten?</h2>
-              <p className="text-teal-100 text-lg mb-8 max-w-2xl mx-auto">
-                Neem vandaag nog contact op voor een vrijblijvend gesprek over uw digitale ambities.
-              </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[var(--c-primary)] px-8 py-4 rounded-full font-bold hover:bg-teal-50 transition-colors">
-                <span>Neem contact op</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+        <OfferDownload />
+
+        <section className="border-t border-slate-200 bg-white px-6 py-16 text-center">
+          <h2 className="text-3xl font-bold text-slate-900">
+            Ook een website voor uw bedrijf?
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-xl text-lg text-slate-600">
+            Vertel ons wat u nodig heeft. We denken graag met u mee over een
+            passende oplossing.
+          </p>
+
+          <Link href="/contact" className="btn-main mt-7">
+            Plan een kennismaking
+            <ArrowRight size={18} aria-hidden="true" />
+          </Link>
+        </section>
+      </div>
   );
 }

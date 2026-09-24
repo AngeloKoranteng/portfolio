@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Onze werkwijze", description: "Van kennismaking en ontwerp tot bouwen en opleveren. Ontdek hoe u samen met DevSoftWeb uw website of applicatie realiseert.", alternates: { canonical: "/werkwijze" } };
 import Link from "next/link";
+import OfferDownload from "../components/OfferDownload";
 
 /*
  * Yo, dit is de werkwijze pagina.
@@ -512,6 +515,7 @@ export default function Werkwijze() {
         CTA: Kom maar op
         Let's get down to business.
       */}
+      <OfferDownload />
       <section className="py-16 sm:py-20 bg-[var(--c-primary)]">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">

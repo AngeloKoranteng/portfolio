@@ -1,4 +1,7 @@
 import Image from "next/image";
+import LiveProjects from "../components/LiveProjects";
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Portfolio", description: "Bekijk de live websites van Yomarra en J.W.M Cleaning, gebouwd door DevSoftWeb, en ontdek onze demo-projecten.", alternates: { canonical: "/portfolio" } };
 
 // hiero al die projecten in een lijstje, lekker overzichtelijk toch?
 const PROJECTS = [
@@ -24,7 +27,7 @@ const PROJECTS = [
   {
     id: 'pizza', // id voor pizza project
     title: "Pizza Bestel Website",
-    description: "Complete voor een pizzeria met menu-builder en live order tracking.",
+    description: "Een bestelwebsite voor een pizzeria met menu-builder en live order tracking.",
     image: "/portfolio/pizza-website/pizza1.jpeg", // lokale pizza foto uit de public map
     link: "/portfolio/pizza-website",
     linkText: "Bekijk details",
@@ -43,7 +46,7 @@ const PROJECTS = [
   {
     id: 'kapper',
     title: "Kapper / Barber",
-    description: "Volledig functionele demo website voor een kapsalon. Inclusief afspraken module, galerij en prijslijst.",
+    description: "Een ontwerpvoorbeeld voor een kapsalon, met galerij en prijslijst.",
     image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop",
     link: "/demo/kapper",
     linkText: "Open Live Demo", // deze knop tekst is anders
@@ -75,15 +78,16 @@ export default function Portfolio() {
         {/* Tekst in het midden */}
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-900">
-            Onze <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">Portfolio</span>
+            Ons <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">Portfolio</span>
           </h1>
           <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Bekijk een selectie van demo-projecten die wij hebben ontworpen voor verschillende soorten bedrijven.
-            Elk project is mobielvriendelijk, modern en gericht op conversie.
+            Bekijk websites die we voor bedrijven hebben gebouwd, aangevuld met demo-projecten die de mogelijkheden laten zien.
           </p>
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-6 pb-16"><h2 className="mb-8 text-3xl font-bold">Websites voor klanten</h2><LiveProjects /></section>
+      <div className="mx-auto max-w-7xl px-6 pb-8"><h2 className="text-3xl font-bold">Demo’s & eigen projecten</h2><p className="mt-3 text-slate-600">Voorbeelden om ideeën en mogelijkheden te ontdekken.</p></div>
       {/* Grid met alle project kaarten */}
       <section className="max-w-7xl mx-auto pb-20 px-6 grid md:grid-cols-3 gap-12">
         {/* Hier mappen we door de PROJECTS lijst heen die we bovenin hebben gemaakt */}
@@ -99,6 +103,7 @@ export default function Portfolio() {
                   src={project.image} 
                   alt={project.title} 
                   fill
+                  sizes="(max-width: 767px) 100vw, 33vw"
                   // afbeelding zoomt een beetje in als je eroverheen muist (group-hover:scale-110)
                   className={`object-cover transition-transform duration-500 group-hover:scale-110 ${project.isLive ? 'opacity-60' : ''}`}
                />
@@ -134,9 +139,9 @@ export default function Portfolio() {
 
       {/* CTA sectie onderaan: Call To Action om te zorgen dat ze contact opnemen */}
       <section className="bg-gray-100 py-16 text-center px-6">
-        <h2 className="text-3xl font-bold mb-4">Klaar voor jouw eigen website?</h2>
+        <h2 className="text-3xl font-bold mb-4">Klaar voor uw eigen website?</h2>
         <p className="text-gray-700 max-w-2xl mx-auto mb-6">
-          Wij bouwen jouw complete website vanaf €500, inclusief hosting, domein en onderhoud.  
+          Een starter website is mogelijk vanaf €750 excl. btw. We maken een voorstel op maat voor uw website. Hosting, domein en onderhoud worden afzonderlijk beschreven.
           Snel, professioneel en gericht op het aantrekken van klanten.
         </p>
         <a

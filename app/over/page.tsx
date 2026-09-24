@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Over DevSoftWeb", description: "Maak kennis met DevSoftWeb. Direct contact met de ontwikkelaar, een praktische aanpak en websites op maat.", alternates: { canonical: "/over" } };
 /*
  * Hier gaan we even opscheppen over onszelf.
  * Waarom wij de beste keuze zijn (spoiler: zijn we gewoon).
@@ -190,14 +192,13 @@ export default function Waarom() {
             {/* Even een badge droppen voor de swag */}
             <div className="badge-soft mb-6">
               <span className="w-2 h-2 rounded-full bg-[var(--c-primary)]" />
-              Waarom wij
+              Persoonlijk samenwerken
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--c-text-main)] mb-4">
-              Waarom DevSoft?
+              Over DevSoftWeb
             </h1>
             <p className="text-lg sm:text-xl text-[var(--c-text-muted)] leading-relaxed">
-              Ontdek waarom bedrijven kiezen voor onze software development
-              diensten.
+              Ik ben Angelo Koranteng, de ontwikkelaar achter DevSoftWeb. Ik bouw websites en applicaties voor ondernemers. U heeft rechtstreeks contact met mij: van het eerste idee tot de oplevering.
             </p>
           </div>
         </div>
@@ -211,7 +212,7 @@ export default function Waarom() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--c-text-main)] mb-3">
-              Wat Ons Onderscheidt
+              Zo werken we samen
             </h2>
             <p className="text-lg text-[var(--c-text-muted)] max-w-3xl mx-auto">
               Geen loze marketingpraat, maar een eerlijke en praktische aanpak

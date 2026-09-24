@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -17,26 +16,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://devsoftweb.nl"),
   title: {
-    default: "DevSoft | Professionele Web & App Development",
-    template: "%s | DevSoft Development"
+    default: "DevSoftWeb | Professionele Web & App Development",
+    template: "%s | DevSoftWeb Development"
   },
-  description: "DevSoft is uw partner voor moderne websites, webapplicaties en mobiele apps. Wij leveren maatwerk software oplossingen met Next.js, React en Laravel.",
+  description: "DevSoftWeb is uw partner voor moderne websites, webapplicaties en mobiele apps. Wij leveren maatwerk software oplossingen met Next.js, React en Laravel.",
   keywords: ["web development", "app ontwikkeling", "software bedrijf", "Next.js", "React", "maatwerk software", "website laten maken"],
-  authors: [{ name: "DevSoft Team" }],
-  creator: "DevSoft Development",
-  publisher: "DevSoft",
+  authors: [{ name: "DevSoftWeb Team" }],
+  creator: "DevSoftWeb Development",
+  publisher: "DevSoftWeb",
   openGraph: {
     type: "website",
     locale: "nl_NL",
-    url: "https://devsoft.nl",
-    title: "DevSoft | Professionele Web & App Development",
+    url: "https://devsoftweb.nl",
+    title: "DevSoftWeb | Professionele Web & App Development",
     description: "Wij realiseren uw digitale ambities met high-end web & mobile development.",
-    siteName: "DevSoft Development",
+    siteName: "DevSoftWeb Development",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DevSoft Development",
+    title: "DevSoftWeb Development",
     description: "Professionele software oplossingen voor uw bedrijf.",
   },
   robots: {
@@ -57,30 +57,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {gaId ? (
-          <>
-            <Script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            />
-            <Script id="google-tag">
-              {`
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-  gtag('js', new Date());
-
-  gtag('config', '${gaId}');
-`}
-            </Script>
-          </>
-        ) : null}
-        <GoogleAnalytics gaId={gaId} />
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-4">Naar de inhoud</a>
         <Header />
-        <main className="min-h-screen">
+        <main id="main-content" className="min-h-screen">
           {children}
         </main>
         <Footer />
+        <GoogleAnalytics gaId={gaId} />
       </body>
     </html>
   );

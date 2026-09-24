@@ -243,7 +243,7 @@ export default function KapperDemo() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
-          © 2024 BarberKing Demo. Designed by DevSoft.
+          © 2024 BarberKing Demo. Designed by DevSoftWeb.
         </div>
       </footer>
 

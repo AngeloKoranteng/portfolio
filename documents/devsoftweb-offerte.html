@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <title>DevSoftWeb — Offerte</title>
+    <style>
+      @font-face {
+        font-family: Geist;
+        src: url("./assets/geist-latin.woff2") format("woff2");
+        font-weight: 100 900;
+      }
+      :root {
+        --teal: #0f766e;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #dce5e4;
+        --soft: #f0fdfa;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        background: #e2e8f0;
+        color: var(--ink);
+        font-family: Geist, Arial, sans-serif;
+        font-size: 9.5pt;
+        line-height: 1.45;
+      }
+      .page {
+        position: relative;
+        width: 210mm;
+        height: 297mm;
+        padding: 16mm 18mm 22mm;
+        background: white;
+        margin: 8mm auto;
+        break-after: page;
+        overflow: hidden;
+      }
+      .page:last-child {
+        break-after: auto;
+      }
+      .brand {
+        color: var(--teal);
+        font-size: 19pt;
+        font-weight: 750;
+        letter-spacing: -0.6pt;
+      }
+      .tagline {
+        font-size: 8pt;
+        color: var(--muted);
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        padding-bottom: 4mm;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 5mm;
+      }
+      .contact {
+        font-size: 8pt;
+        text-align: right;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .contact a,
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .eyebrow {
+        color: var(--teal);
+        text-transform: uppercase;
+        letter-spacing: 1.5pt;
+        font-size: 8pt;
+        font-weight: 650;
+        margin-bottom: 2mm;
+      }
+      h1 {
+        font-size: 28pt;
+        letter-spacing: -1.5pt;
+        line-height: 1.1;
+        margin: 0 0 2.5mm;
+      }
+      h2 {
+        font-size: 15pt;
+        letter-spacing: -0.4pt;
+        line-height: 1.25;
+        margin: 4mm 0 2mm;
+      }
+      h3 {
+        font-size: 11pt;
+        margin: 4mm 0 2mm;
+      }
+      p {
+        margin: 0 0 2.5mm;
+        color: var(--muted);
+      }
+      .lead {
+        font-size: 11pt;
+        max-width: 150mm;
+      }
+      .meta {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1.2fr;
+        gap: 4mm;
+        padding: 3mm 4mm;
+        background: #f7f9f8;
+        border: 1px solid var(--line);
+        border-radius: 3mm;
+        margin: 5mm 0;
+        font-size: 8.5pt;
+      }
+      .label {
+        display: block;
+        color: #64748b;
+        font-size: 8pt;
+        margin-bottom: 1mm;
+      }
+      .client {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4mm 7mm;
+        border: 1px solid var(--line);
+        border-radius: 3mm;
+        padding: 3mm 4mm;
+      }
+      .field {
+        height: 7mm;
+        border-bottom: 1px solid #94a3b8;
+        color: #64748b;
+        font-size: 8.5pt;
+      }
+      ul {
+        padding-left: 5mm;
+        margin: 2mm 0 4mm;
+        color: var(--muted);
+      }
+      li {
+        margin-bottom: 1.2mm;
+        padding-left: 1mm;
+      }
+      li::marker {
+        color: var(--teal);
+      }
+      .two-col {
+        columns: 2;
+        column-gap: 8mm;
+      }
+      .two-col li {
+        break-inside: avoid;
+      }
+      .note {
+        padding: 3mm 4mm;
+        border-left: 3px solid var(--teal);
+        background: var(--soft);
+        font-size: 9pt;
+        border-radius: 0 2mm 2mm 0;
+      }
+      .price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--soft);
+        border: 1px solid #b5ded7;
+        border-radius: 3mm;
+        padding: 3mm 4mm;
+        margin: 3mm 0;
+      }
+      .price strong {
+        font-size: 20pt;
+        letter-spacing: -0.7pt;
+        color: var(--teal);
+      }
+      .price small {
+        font-size: 9pt;
+        color: var(--muted);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 3mm 0 4mm;
+      }
+      th {
+        text-align: left;
+        color: #64748b;
+        font-weight: 500;
+        font-size: 8.5pt;
+        padding: 2.5mm 3mm;
+        border-bottom: 1px solid var(--line);
+      }
+      td {
+        padding: 2mm 3mm;
+        border-bottom: 1px solid var(--line);
+      }
+      td:last-child,
+      th:last-child {
+        text-align: right;
+      }
+      tbody tr:first-child {
+        background: var(--soft);
+      }
+      .amount {
+        color: var(--teal);
+        font-weight: 700;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4mm;
+        margin: 3mm 0;
+      }
+      .box {
+        border: 1px solid var(--line);
+        border-radius: 3mm;
+        padding: 3mm 4mm;
+      }
+      .box strong {
+        color: var(--teal);
+        font-size: 19pt;
+        display: block;
+      }
+      .box p {
+        font-size: 9pt;
+        margin: 1mm 0 0;
+      }
+      .signature {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7mm;
+        margin-top: 5mm;
+      }
+      .signature .field {
+        height: 12mm;
+      }
+      footer {
+        position: absolute;
+        bottom: 10mm;
+        left: 18mm;
+        right: 18mm;
+        border-top: 1px solid var(--line);
+        padding-top: 3mm;
+        display: flex;
+        justify-content: space-between;
+        font-size: 7.5pt;
+        color: #64748b;
+      }
+      .footer-brand {
+        color: var(--teal);
+        font-weight: 600;
+      }
+      .close {
+        background: var(--ink);
+        color: white;
+        padding: 3mm 4mm;
+        border-radius: 3mm;
+        margin-top: 7mm;
+      }
+      .close p {
+        color: #cbd5e1;
+        font-size: 9pt;
+      }
+      .close h3 {
+        margin-top: 0;
+        color: #99f6e4;
+      }
+      @media print {
+        body {
+          background: white;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+        .page {
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page">
+      <header>
+        <div>
+          <div class="brand">DevSoftWeb</div>
+          <div class="tagline">Website & Software Development</div>
+        </div>
+        <div class="contact">
+          Angelo Koranteng<br /><a href="tel:+31686122809">0686122809</a> ·
+          <a href="https://devsoftweb.nl">devsoftweb.nl</a><br /><a
+            href="mailto:angelokoranteng36@gmail.com"
+            >angelokoranteng36@gmail.com</a
+          >
+        </div>
+      </header>
+      <div class="eyebrow">Een sterke basis voor uw bedrijf</div>
+      <h1>Offerte.</h1>
+      <p class="lead">
+        Professionele websites. Slimme oplossingen. Persoonlijke service.
+      </p>
+      <div class="meta">
+        <div>
+          <span class="label">Offertenummer (voorbeeld)</span>DSW-2026-001
+        </div>
+        <div><span class="label">Datum</span>[datum]</div>
+        <div><span class="label">Geldig tot</span>[datum + 14 dagen]</div>
+      </div>
+      <p style="font-size: 8pt">
+        Offertesjabloon · Klantgegevens, projectafspraken, datum en definitieve
+        prijs worden vóór akkoord ingevuld.
+      </p>
+      <h3>Klantgegevens</h3>
+      <div class="client">
+        <div>
+          <span class="label">Naam</span>
+          <div class="field">[Naam klant]</div>
+        </div>
+        <div>
+          <span class="label">Bedrijf</span>
+          <div class="field">[Bedrijfsnaam]</div>
+        </div>
+        <div>
+          <span class="label">E-mail</span>
+          <div class="field">[E-mailadres]</div>
+        </div>
+        <div>
+          <span class="label">Telefoon</span>
+          <div class="field">[Telefoonnummer]</div>
+        </div>
+      </div>
+      <h2>01 / Uw project</h2>
+      <p>
+        Bedankt voor uw interesse in DevSoftWeb. Op basis van uw wensen maken
+        wij een professionele, moderne en gebruiksvriendelijke website die
+        aansluit bij uw bedrijf en doelgroep.
+      </p>
+      <h3>Werkzaamheden</h3>
+      <p>De website kan onder andere bestaan uit:</p>
+      <ul class="two-col">
+        <li>Modern en professioneel webdesign</li>
+        <li>Responsive ontwerp voor mobiel, tablet en desktop</li>
+        <li>Opbouw van de benodigde pagina’s</li>
+        <li>Contactformulier</li>
+        <li>Integratie van social media</li>
+        <li>Basis SEO-optimalisatie</li>
+        <li>Snelheidsoptimalisatie</li>
+        <li>Beveiligingsmaatregelen</li>
+        <li>Google Maps / locatie-integratie indien gewenst</li>
+        <li>Basis analytics/statistieken indien gewenst</li>
+        <li>Testen op verschillende apparaten en browsers</li>
+        <li>Publicatie van de website</li>
+      </ul>
+      <p class="note">
+        Eventuele aanvullende functionaliteiten worden vooraf besproken en
+        kunnen afzonderlijk worden opgenomen in de offerte.
+      </p>
+      <footer>
+        <span class="footer-brand">DevSoftWeb</span
+        ><span>Uw project · Offertesjabloon</span><span>01 / 04</span>
+      </footer>
+    </section>
+    <section class="page">
+      <header>
+        <div>
+          <div class="brand">DevSoftWeb</div>
+          <div class="tagline">Website & Software Development</div>
+        </div>
+        <div class="contact">
+          Offerte · DSW-2026-001<br />Investering & planning
+        </div>
+      </header>
+      <div class="eyebrow">Duidelijkheid vooraf</div>
+      <h1>Investering & planning.</h1>
+      <h2>02 / Investering</h2>
+      <div class="price">
+        <div>
+          <span class="label">Website Development · Projectprijs</span
+          ><strong>€ [BEDRAG]</strong> <small>excl. btw</small>
+        </div>
+      </div>
+      <p>
+        De uiteindelijke prijs is afhankelijk van het aantal pagina’s, gewenste
+        functionaliteiten, ontwerp en eventuele maatwerkintegraties.
+      </p>
+      <h3>Richtprijzen</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Type website</th>
+            <th>Vanafprijs excl. btw</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Starter website</td>
+            <td class="amount">€750</td>
+          </tr>
+          <tr>
+            <td>Professionele bedrijfswebsite</td>
+            <td class="amount">€1.500</td>
+          </tr>
+          <tr>
+            <td>Uitgebreide website</td>
+            <td class="amount">€2.500</td>
+          </tr>
+          <tr>
+            <td>Webshop / uitgebreid maatwerk</td>
+            <td class="amount">€3.500</td>
+          </tr>
+          <tr>
+            <td>Complex maatwerk</td>
+            <td class="amount">€5.000+</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">
+        De exacte prijs wordt vastgesteld op basis van de definitieve
+        projectomschrijving.
+      </p>
+      <h2>03 / Wat is inbegrepen?</h2>
+      <p>
+        De overeengekomen projectprijs omvat de werkzaamheden die specifiek in
+        deze offerte zijn beschreven. Na goedkeuring starten wij met het ontwerp
+        en de ontwikkeling van de website.
+      </p>
+      <p>
+        Wij zorgen ervoor dat de website vóór oplevering wordt getest en
+        gecontroleerd op de afgesproken functionaliteiten.
+      </p>
+      <h2>04 / Planning</h2>
+      <p>
+        Na akkoord op de offerte en ontvangst van de benodigde informatie
+        starten wij met het project.
+      </p>
+      <div class="box">
+        <span class="label">Geschatte doorlooptijd</span><b>[X] weken</b>
+      </div>
+      <p style="margin-top: 3mm">
+        De exacte planning is afhankelijk van de omvang van het project en de
+        snelheid waarmee benodigde teksten, afbeeldingen, logo’s en andere
+        materialen worden aangeleverd.
+      </p>
+      <footer>
+        <span class="footer-brand">DevSoftWeb</span
+        ><span>Investering & planning · Offertesjabloon</span
+        ><span>02 / 04</span>
+      </footer>
+    </section>
+    <section class="page">
+      <header>
+        <div>
+          <div class="brand">DevSoftWeb</div>
+          <div class="tagline">Website & Software Development</div>
+        </div>
+        <div class="contact">
+          Offerte · DSW-2026-001<br />Betaling & ondersteuning
+        </div>
+      </header>
+      <div class="eyebrow">Tijdens én na het bouwen</div>
+      <h1>Betaling & onderhoud.</h1>
+      <h2>05 / Betaling</h2>
+      <p>Voor projecten geldt:</p>
+      <div class="split">
+        <div class="box">
+          <strong>50%</strong>
+          <p>Aanbetaling bij akkoord op de offerte.</p>
+        </div>
+        <div class="box">
+          <strong>50%</strong>
+          <p>Resterend bedrag bij oplevering van het project.</p>
+        </div>
+      </div>
+      <p>
+        Voorbeeld bij een project van €1.500 excl. btw: €750 bij start en €750
+        bij oplevering, beide excl. btw. De website wordt na volledige betaling
+        definitief opgeleverd.
+      </p>
+      <h2>06 / Hosting, domeinnaam & onderhoud</h2>
+      <p>
+        Na oplevering kunt u ervoor kiezen om uw website door DevSoftWeb te
+        laten hosten en onderhouden.
+      </p>
+      <div class="price">
+        <div>
+          <span class="label">Service & Onderhoud</span><strong>€79</strong>
+          <small>per maand</small>
+        </div>
+        <span style="font-size: 9pt; color: var(--teal)">Optioneel</span>
+      </div>
+      <p>Het onderhoudsabonnement omvat:</p>
+      <ul class="two-col">
+        <li>Premium hosting & domeinnaam</li>
+        <li>24/7 uptime monitoring</li>
+        <li>Dagelijkse back-ups</li>
+        <li>Beveiligingsmonitoring</li>
+        <li>Maandelijkse security updates</li>
+        <li>1 uur technische support per maand</li>
+        <li>Snelheids- en performance-optimalisatie</li>
+        <li>Technisch onderhoud</li>
+      </ul>
+      <p>
+        Het onderhoudsabonnement is optioneel, tenzij anders vermeld in deze
+        offerte. Niet-gebruikte supporturen kunnen niet worden meegenomen naar
+        de volgende maand.
+      </p>
+      <p>
+        Werkzaamheden buiten het onderhoudsabonnement worden vooraf besproken en
+        kunnen tegen een afzonderlijk tarief worden uitgevoerd.
+      </p>
+      <h2>07 / Extra werkzaamheden</h2>
+      <p>
+        Functionaliteiten of werkzaamheden die niet in deze offerte zijn
+        opgenomen, vallen buiten de projectprijs. Voorbeelden hiervan zijn:
+      </p>
+      <ul class="two-col">
+        <li>Extra pagina’s</li>
+        <li>Uitgebreide webshopfunctionaliteiten</li>
+        <li>API-koppelingen</li>
+        <li>Boekingssystemen</li>
+        <li>Betaalsystemen</li>
+        <li>Maatwerk webapplicaties</li>
+        <li>Extra revisierondes</li>
+        <li>Grote wijzigingen na goedkeuring van het ontwerp</li>
+      </ul>
+      <p class="note">
+        Voor aanvullende werkzaamheden ontvangt u vooraf een prijsopgave.
+      </p>
+      <footer>
+        <span class="footer-brand">DevSoftWeb</span
+        ><span>Betaling & ondersteuning · Offertesjabloon</span
+        ><span>03 / 04</span>
+      </footer>
+    </section>
+    <section class="page">
+      <header>
+        <div>
+          <div class="brand">DevSoftWeb</div>
+          <div class="tagline">Website & Software Development</div>
+        </div>
+        <div class="contact">
+          Offerte · DSW-2026-001<br />Oplevering & akkoord
+        </div>
+      </header>
+      <div class="eyebrow">Samen van start</div>
+      <h1>De volgende stap.</h1>
+      <h2>08 / Oplevering</h2>
+      <p>
+        Na afronding wordt de website aan de klant ter controle aangeboden.
+        Eventuele kleine correcties die binnen de afgesproken scope vallen,
+        worden verwerkt.
+      </p>
+      <p>
+        Wanneer de website is goedgekeurd en de betaling is voldaan, wordt het
+        project officieel opgeleverd.
+      </p>
+      <h2>09 / Geldigheid van de offerte</h2>
+      <p>
+        Deze offerte is 14 dagen geldig vanaf de offertedatum. Na deze periode
+        kan DevSoftWeb de prijs en beschikbaarheid opnieuw beoordelen.
+      </p>
+      <h2>10 / Akkoord</h2>
+      <p>
+        Door akkoord te gaan met deze offerte bevestigt de klant dat hij/zij
+        akkoord gaat met:
+      </p>
+      <ul>
+        <li>de beschreven werkzaamheden;</li>
+        <li>de projectprijs;</li>
+        <li>de betalingsvoorwaarden;</li>
+        <li>de planning;</li>
+        <li>de voorwaarden rondom aanvullende werkzaamheden.</li>
+      </ul>
+      <h3>Voor akkoord</h3>
+      <div class="signature">
+        <div>
+          <span class="label">Naam klant</span>
+          <div class="field"></div>
+        </div>
+        <div>
+          <span class="label">Bedrijfsnaam</span>
+          <div class="field"></div>
+        </div>
+        <div>
+          <span class="label">Datum</span>
+          <div class="field"></div>
+        </div>
+        <div>
+          <span class="label">Handtekening</span>
+          <div class="field"></div>
+        </div>
+      </div>
+      <div class="close">
+        <h3>DevSoftWeb · Angelo Koranteng</h3>
+        <p>
+          <a href="tel:+31686122809">0686122809</a> ·
+          <a href="mailto:angelokoranteng36@gmail.com"
+            >angelokoranteng36@gmail.com</a
+          ><br /><a href="https://devsoftweb.nl">devsoftweb.nl</a>
+        </p>
+        <p style="margin-bottom: 0">
+          Professionele websites. Slimme oplossingen. Persoonlijke service.
+        </p>
+      </div>
+      <footer>
+        <span class="footer-brand">DevSoftWeb</span
+        ><span>Oplevering & akkoord · Offertesjabloon</span><span>04 / 04</span>
+      </footer>
+    </section>
+  </body>
+</html>

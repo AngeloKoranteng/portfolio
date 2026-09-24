@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "Websites, applicaties en onderhoud", description: "Ontdek de mogelijkheden voor uw bedrijfswebsite, maatwerkapplicatie, API-koppelingen en onderhoud bij DevSoftWeb.", alternates: { canonical: "/diensten" } };
 import Link from "next/link"; // voor die linkjes
 import FadeInSection from "../components/FadeInSection"; // die fade animatie dinges
 
