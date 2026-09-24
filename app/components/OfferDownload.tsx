@@ -1,7 +1,40 @@
 import { Download, ArrowRight, FileText } from "lucide-react";
 import Link from "next/link";
 
-export default function OfferDownload() {
+export default function OfferDownload({
+  compact = false,
+}: {
+  compact?: boolean;
+}) {
+  if (compact) {
+    return (
+      <section
+        className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-5 px-6 py-8 sm:flex-row sm:items-center"
+        aria-labelledby="offerte-title"
+      >
+        <div>
+          <h2
+            id="offerte-title"
+            className="text-xl font-semibold text-slate-900"
+          >
+            Offerte & richtprijzen
+          </h2>
+          <p className="mt-1 text-sm text-slate-600">
+            PDF · 4 pagina’s · Offertesjabloon
+          </p>
+        </div>
+        <a
+          href="/downloads/devsoftweb-offerte.pdf"
+          download="DevSoftWeb-Offerte.pdf"
+          className="btn-main"
+        >
+          <Download size={18} aria-hidden="true" />
+          Download offerte (PDF)
+        </a>
+      </section>
+    );
+  }
+
   return (
     <section
       className="mx-auto max-w-7xl px-6 py-12"

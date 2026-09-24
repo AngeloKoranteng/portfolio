@@ -12,9 +12,9 @@ const projects = [
         image: "/portfolio/live/yomarra-online.png",
     },
     {
-        name: "JMW Cleaning",
-        url: "https://www.jwmcleaning.nl",
-        displayUrl: "jmwcleaning.nl",
+       name: "JWM Cleaning",
+        url: "https://jwmcleaning.nl",
+        displayUrl: "jwmcleaning.nl",
         image: "/portfolio/live/jwm-cleaning.png",
     },
 ];

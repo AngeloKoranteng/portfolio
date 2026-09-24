@@ -2,7 +2,11 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { liveProjects } from "../data/projects";
 
-export default function LiveProjects() {
+export default function LiveProjects({
+  compact = false,
+}: {
+  compact?: boolean;
+}) {
   return (
     <div className="grid gap-8 md:grid-cols-2">
       {liveProjects.map((project) => (
@@ -50,22 +54,26 @@ export default function LiveProjects() {
             <h3 className="mb-3 text-2xl font-semibold tracking-tight text-slate-900">
               {project.name}
             </h3>
-            <p className="mb-5 leading-relaxed text-slate-600">
-              {project.description}
-            </p>
-            <ul
-              className="mb-6 flex flex-wrap gap-2"
-              aria-label="Projectkenmerken"
-            >
-              {project.tags.map((tag) => (
-                <li
-                  key={tag}
-                  className="rounded-md bg-slate-50 px-3 py-1 text-xs text-slate-600"
+            {!compact && (
+              <>
+                <p className="mb-5 leading-relaxed text-slate-600">
+                  {project.description}
+                </p>
+                <ul
+                  className="mb-6 flex flex-wrap gap-2"
+                  aria-label="Projectkenmerken"
                 >
-                  {tag}
-                </li>
-              ))}
-            </ul>
+                  {project.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded-md bg-slate-50 px-3 py-1 text-xs text-slate-600"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
             <a
               href={project.url}
               target="_blank"
