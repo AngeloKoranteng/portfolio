@@ -13,7 +13,7 @@ const projects = [
     },
     {
         name: "JMW Cleaning",
-        url: "https://jmwcleaning.nl",
+        url: "https://www.jwmcleaning.nl",
         displayUrl: "jmwcleaning.nl",
         image: "/portfolio/live/jwm-cleaning.png",
     },
